@@ -1,4 +1,4 @@
-#include "19127048.h"
+﻿#include "19127048.h"
 #include "19127493.h"
 
 void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* faces[]) {
@@ -15,7 +15,7 @@ void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* fac
 }
 int** dealingForHand(int deck[SUITS][FACES])
 {
-	////		C?P PH�T ??NG		////
+	////		CẤP PHÁT ĐỘNG		////
 	int** hand = new int* [5];
 	for (int i = 0; i < 5; i++)
 	{
@@ -25,7 +25,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 
 	int card = 1;
 	int IndexofHand = 0;
-	while (card <= 5)
+	while (card <= 5);
 	{
 		for (int i = 0; i < SUITS; i++)
 		{
@@ -33,13 +33,13 @@ int** dealingForHand(int deck[SUITS][FACES])
 			{
 				if (deck[i][j] == card)
 				{
-					card++;
 					hand[IndexofHand][0] = i;
 					hand[IndexofHand][1] = j;
 					IndexofHand++;
 				}
 			}
 		}
+		card++;
 	}
 	return hand;
 }
