@@ -7,5 +7,5 @@
 using namespace std;
 
 void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* faces[]);
-int** dealingForHand(int deck[SUITS][FACES]);
+
 void printHand(int** hand,const char* suits[],const char* faces[]);

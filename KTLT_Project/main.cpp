@@ -6,15 +6,20 @@ void main()
 	const char* suits[SUITS] = { "Hearts", "Diamonds", "Clubs", "Spades" };
 	const char* ranks[RANKS] = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
 
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	shuffleCards(deck);
-	printMatrix(deck);
+	//printMatrix(deck);
 	
 
 	printCardsShuffling(deck, suits, ranks);
-	cout << "Player 1" << endl;
+
+
 	int** hand;
+	cout << "Player 1" << endl;
 	hand = dealingForHand(deck);
 	printHand(hand, suits, ranks);
+
+
 	system("pause");
 }
