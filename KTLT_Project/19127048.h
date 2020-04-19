@@ -9,7 +9,6 @@ using namespace std;
 
 void shuffleCards(int deck[][RANKS]);
 
-// test
 ////////////////////////////////////////////////////////////////////////////////
 
 void printMatrix(int deck[][RANKS]);
