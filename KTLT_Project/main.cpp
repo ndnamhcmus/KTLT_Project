@@ -8,9 +8,13 @@ void main()
 
 
 	shuffleCards(deck);
-	//printMatrix(deck);
+	printMatrix(deck);
 	
 
 	printCardsShuffling(deck, suits, ranks);
+	cout << "Player 1" << endl;
+	int** hand;
+	hand = dealingForHand(deck);
+	printHand(hand, suits, ranks);
 	system("pause");
 }
