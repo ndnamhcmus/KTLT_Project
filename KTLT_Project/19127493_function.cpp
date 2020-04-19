@@ -25,7 +25,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 
 	int card = 1;
 	int IndexofHand = 0;
-	while (card <= 5);
+	while (card <= 5)
 	{
 		for (int i = 0; i < SUITS; i++)
 		{
