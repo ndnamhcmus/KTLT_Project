@@ -9,7 +9,7 @@ void main()
 
 	shuffleCards(deck);
 	//printMatrix(deck);
-	// abc
+
 
 	printCardsShuffling(deck, suits, ranks);
 	system("pause");
