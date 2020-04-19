@@ -1,6 +1,6 @@
 #include "19127048.h"
 #include "19127493.h"
-
+// test
 void main()
 {
 	int deck[SUITS][RANKS] = { 0 };
@@ -9,7 +9,7 @@ void main()
 
 
 	shuffleCards(deck);
-	printMatrix(deck);
+	//printMatrix(deck);
 
 
 	printCardsShuffling(deck, suits, ranks);
