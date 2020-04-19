@@ -1,7 +1,7 @@
 #include "19127048.h"
 #include "19127493.h"
 
-void printCardsShuffling(int deck[][13], const char* suits[], const char* faces[]) {
+void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* faces[]) {
 	
 	int key = 1;
 	int time = 0;
