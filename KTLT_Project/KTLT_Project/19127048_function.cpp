@@ -74,11 +74,12 @@ int** createHandTest(int a[])
 	printMatrix(deck);
 
 
-	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
+	  ////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
 	for (int i = 0; i < 5; i++)
 	{
 		cin >> a[i];
 	}
+
 
 
 	int IndexofArray = 0;

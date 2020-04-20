@@ -9,3 +9,5 @@ using namespace std;
 void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* faces[]);
 
 void printHand(int** hand,const char* suits[],const char* faces[]);
+
+int isStraightFlush(int** hand);
