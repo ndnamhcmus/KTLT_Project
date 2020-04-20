@@ -77,6 +77,7 @@ int** createHandTest(int a[])
 	  ////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
 	for (int i = 0; i < 5; i++)
 	{
+		cout << "Enter your card number: ";
 		cin >> a[i];
 	}
 
@@ -86,11 +87,11 @@ int** createHandTest(int a[])
 	int IndexofResult = 0;
 	while (IndexofArray < 5)
 	{
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < SUITS; i++)
 		{
-			for (int j = 0; j < 2; j++)
+			for (int j = 0; j < RANKS; j++)
 			{
-				if (a[i] == deck[i][j])
+				if (deck[i][j] == a[IndexofArray])
 				{
 					result[IndexofResult][0] = i;
 					result[IndexofResult][1] = j;
@@ -100,6 +101,8 @@ int** createHandTest(int a[])
 		}
 		IndexofArray++;
 	}
+	//printPointerMatrix(result, 5, 2);
+
 	return result;
 }
 
@@ -118,7 +121,7 @@ int isFourOfAKind(int** hand)
 
 int isFullHouse(int** hand)
 {
-	if (checkFullHouse)
+	if (checkFullHouse(hand))
 	{
 		return 6;
 	}
@@ -130,7 +133,7 @@ int isFullHouse(int** hand)
 
 int isFlush(int** hand)
 {
-	if (checkFlush)
+	if (checkFlush(hand))
 	{
 		return 5;
 	}
@@ -142,7 +145,7 @@ int isFlush(int** hand)
 
 int isStraight(int** hand)
 {
-	if (checkStraight)
+	if (checkStraight(hand))
 	{
 		return 4;
 	}
@@ -172,7 +175,7 @@ void printPointerMatrix(int** Matrix, int row, int column)
 	{
 		for (int j = 0; j < column; j++)
 		{
-			cout << "\t";
+			cout << *(*(Matrix + i) + j) << "\t";
 		}
 		cout << endl;
 	}
@@ -182,7 +185,7 @@ bool checkFourOfAKind(int** hand)
 {
 	////		CẤP PHÁT ĐỘNG		////
 	int** handTest = new int* [5];
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		*(handTest + i) = new int[2];
 	}
@@ -194,7 +197,7 @@ bool checkFourOfAKind(int** hand)
 	{
 		for (int j = i + 1; j < 5; j++)
 		{
-			if (handTest[i][1] > handTest[j][1])
+			if (handTest[i][1] != handTest[j][1])
 			{
 				swap(handTest[i][1], handTest[j][1]);
 			}
@@ -202,21 +205,31 @@ bool checkFourOfAKind(int** hand)
 	}
 
 
-	for (int i = 0; i < 5 - 2; i++)
+	int count = 0;
+	for (int i = 0; i < 5 - 1; i++)
 	{
-		if (handTest[i][1] != handTest[i + 1][1])
+		if (handTest[i][1] == handTest[i + 1][1])
 		{
-			return false;
+			count++;
 		}
 	}
-	return true;
+
+
+	if (count == 4)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool checkFullHouse(int** hand)
 {
 	////		CẤP PHÁT ĐỘNG		////
 	int** handTest = new int* [5];
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		*(handTest + i) = new int[2];
 	}
@@ -228,7 +241,7 @@ bool checkFullHouse(int** hand)
 	{
 		for (int j = i + 1; j < 5; j++)
 		{
-			if (handTest[i][1] > handTest[j][1])
+			if (handTest[i][1] != handTest[j][1])
 			{
 				swap(handTest[i][1], handTest[j][1]);
 			}
@@ -236,14 +249,24 @@ bool checkFullHouse(int** hand)
 	}
 
 
-	for (int i = 0; i < 5 - 3; i++)
+	int count = 0;
+	for (int i = 0; i < 5 - 1; i++)
 	{
-		if (handTest[i][1] != handTest[i + 1][1])
+		if (handTest[i][1] == handTest[i + 1][1])
 		{
-			return false;
+			count++;
 		}
 	}
-	return true;
+
+
+	if (count == 3)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool checkFlush(int** hand)

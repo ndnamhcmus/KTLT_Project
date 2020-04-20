@@ -26,6 +26,8 @@ int isStraight(int** hand);
 
 void printMatrix(int deck[][RANKS]);
 
+void printPointerMatrix(int** Matrix, int row, int column);
+
 bool checkFourOfAKind(int** hand);
 
 bool checkFullHouse(int** hand);

@@ -13,14 +13,18 @@ void main()
 	//printMatrix(deck);
 	
 
-	printCardsShuffling(deck, suits, ranks);
+	//printCardsShuffling(deck, suits, ranks);
 
 
-	int** hand;
-	cout << "Player 1" << endl;
-	hand = dealingForHand(deck);
-	printHand(hand, suits, ranks);
+	//int** hand;
+	//cout << "Player 1" << endl;
+	//hand = dealingForHand(deck);
+	//printHand(hand, suits, ranks);
 
+
+	int array[5];
+	int** test = createHandTest(array);
+	cout << isFourOfAKind(test);
 
 	system("pause");
 }
