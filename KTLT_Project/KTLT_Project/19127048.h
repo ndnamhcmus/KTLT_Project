@@ -26,10 +26,10 @@ int isStraight(int** hand);
 
 void printMatrix(int deck[][RANKS]);
 
-bool isSequenceFourOfAKind(int** hand);
+bool checkFourOfAKind(int** hand);
 
-bool isSequenceFullHouse(int** hand);
+bool checkFullHouse(int** hand);
 
-bool isSequenceFlush(int** hand);
+bool checkFlush(int** hand);
 
-bool isSequenceStraight(int** hand);
+bool checkStraight(int** hand);

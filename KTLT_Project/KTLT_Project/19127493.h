@@ -1,5 +1,5 @@
 #include <iostream>
-///	test	////
+
 #define SUITS 4
 #define RANKS 13
 #define FACES 13
