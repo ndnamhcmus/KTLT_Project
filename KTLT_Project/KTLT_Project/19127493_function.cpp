@@ -44,15 +44,96 @@ int isThreeOfAKind(int** hand) {
 			}
 		}
 	}
-	/*	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST (Create hand test)			////
-	int a[5];
-	for (int i = 0; i < 5; i++)
+	///         Check Three of a kind		////
+	int count = 0;
+	for (int i = 0; i < 5 - 1; i++)
 	{
-		cin >> a[i];
+		if (handTest[i][1] == handTest[i + 1][1])
+		{
+			count++;
+		}
 	}
-	int** result;
-	result = createHandTest(a, deck);
-	cout << isStraightFlush(result) << endl;
-*/
-	return 0;
+	if (count == 3 && checkFullHouse(hand) == false)
+		return 3;
+	if (count != 3 || checkFullHouse(hand) == true)
+		return 0;
+}
+int isTwoPairs(int** hand) {
+	////		CẤP PHÁT ĐỘNG		////
+	int** handTest = new int* [5];
+	for (int i = 0; i < 2; i++)
+	{
+		*(handTest + i) = new int[2];
+	}
+	handTest = hand;
+
+	////		SORT RANK		////
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		for (int j = i + 1; j < 5; j++)
+		{
+			if (handTest[i][1] > handTest[j][1])
+			{
+				swap(handTest[i][1], handTest[j][1]);
+			}
+		}
+	}
+	///         Check diffrent		////
+	int count = 0;
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		if (handTest[i][1] != handTest[i + 1][1])
+		{
+			count++;
+		}
+	}
+	if (count != 2)
+		return 0;
+	else {
+		if (handTest[0][1] == handTest[1][1] && handTest[2][1] == handTest[3][1])
+			return 2;
+		if (handTest[1][1] == handTest[2][1] && handTest[3][1] == handTest[4][1])
+			return 2;
+		if (handTest[0][1] == handTest[1][1] && handTest[3][1] == handTest[4][1])
+			return 2;
+		return 0;
+	}
+}
+int isPair(int** hand) {
+	////		CẤP PHÁT ĐỘNG		////
+	int** handTest = new int* [5];
+	for (int i = 0; i < 2; i++)
+	{
+		*(handTest + i) = new int[2];
+	}
+	handTest = hand;
+
+	////		SORT RANK		////
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		for (int j = i + 1; j < 5; j++)
+		{
+			if (handTest[i][1] > handTest[j][1])
+			{
+				swap(handTest[i][1], handTest[j][1]);
+			}
+		}
+	}
+	///         Check diffrent		////
+	int count = 0;
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		if (handTest[i][1] != handTest[i + 1][1])
+		{
+			count++;
+		}
+	}
+	if (count != 3)
+		return 0;
+	else 
+		return 1;
+	
+}
+int getHighestCard(int** hand) {
+
 }

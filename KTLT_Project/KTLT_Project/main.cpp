@@ -24,7 +24,9 @@ void main()
 
 	int array[5];
 	int** test = createHandTest(array);
-	cout << isFourOfAKind(test);
-
+	//cout << isFourOfAKind(test) << endl;
+	//cout << isStraightFlush(test) << endl;
+	//cout << isTwoPairs(test) << endl;
+	//cout << isPair(test) << endl;
 	system("pause");
 }

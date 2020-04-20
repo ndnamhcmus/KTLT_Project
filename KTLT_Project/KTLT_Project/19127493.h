@@ -11,3 +11,11 @@ void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* fac
 void printHand(int** hand,const char* suits[],const char* faces[]);
 
 int isStraightFlush(int** hand);
+
+int isThreeOfAKind(int** hand);
+
+int isTwoPairs(int** hand);
+
+int isPair(int** hand);
+
+int getHighestCard(int** hand);
