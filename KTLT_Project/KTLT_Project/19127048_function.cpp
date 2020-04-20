@@ -38,7 +38,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 
 
 	int card = 1;
-	int IndexofHand = 0;
+	int IndexofResult = 0;
 	while (card <= 5)
 	{
 		for (int i = 0; i < SUITS; i++)
@@ -47,9 +47,9 @@ int** dealingForHand(int deck[SUITS][FACES])
 			{
 				if (deck[i][j] == card)
 				{
-					result[IndexofHand][0] = i;
-					result[IndexofHand][1] = j;
-					IndexofHand++;
+					result[IndexofResult][0] = i;
+					result[IndexofResult][1] = j;
+					IndexofResult++;
 				}
 			}
 		}
@@ -60,23 +60,46 @@ int** dealingForHand(int deck[SUITS][FACES])
 
 int** createHandTest(int a[])
 {
-	////		CẤP PHÁT ĐỘNG		////
-	int** hand = new int* [5];
+	////		CẤP PHÁT ĐỘNG DÙNG ĐỂ LƯU CÁC VỊ TRÍ TRONG BỘ BÀI		////
+	int** result = new int* [5];
 	for (int i = 0; i < 5; i++)
 	{
-		*(hand + i) = new int[2];
+		*(result + i) = new int[2];
 	}
 
 
+	////		INPUT DECK		////
 	int deck[SUITS][RANKS] = { 0 };
 	shuffleCards(deck);
+	printMatrix(deck);
 
 
+	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
 	for (int i = 0; i < 5; i++)
 	{
 		cin >> a[i];
 	}
-	return 0;
+
+
+	int IndexofArray = 0;
+	int IndexofResult = 0;
+	while (IndexofArray < 5)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			for (int j = 0; j < 2; j++)
+			{
+				if (a[i] == deck[i][j])
+				{
+					result[IndexofResult][0] = i;
+					result[IndexofResult][1] = j;
+					IndexofResult++;
+				}
+			}
+		}
+		IndexofArray++;
+	}
+	return result;
 }
 
 int isFourOfAKind(int** hand)
