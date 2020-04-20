@@ -58,6 +58,54 @@ int** dealingForHand(int deck[SUITS][FACES])
 	return hand;
 }
 
+int** createHandTest(int a[])
+{
+	int** hand = new int* [5];
+	for (int i = 0; i < 5; i++)
+	{
+		*(hand + i) = new int[2];
+	}
+
+
+}
+
+int isFourOfAKind(int** hand)
+{
+	////		SO SÁNH CÁC 4 LÁ BÀI LIỀN KỀ		////
+	if (isSequenceFourOfAKind(hand))
+	{
+		return 7;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int isFullHouse(int** hand)
+{
+	if (isSequenceFullHouse)
+	{
+		return 6;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int isFlush(int** hand)
+{
+	if (isSequenceFlush)
+	{
+		return 5;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 void printMatrix(int deck[][RANKS])
@@ -70,4 +118,84 @@ void printMatrix(int deck[][RANKS])
 		}
 		cout << endl;
 	}
+}
+
+bool isSequenceFourOfAKind(int** hand)
+{
+	////		CẤP PHÁT ĐỘNG		////
+	int** handTest = new int* [5];
+	for (int i = 0; i < 2; i++)
+	{
+		*(handTest + i) = new int[2];
+	}
+	handTest = hand;
+
+
+	////		SORT RANK		////
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		for (int j = i + 1; j < 5; j++)
+		{
+			if (handTest[i][1] > handTest[j][1])
+			{
+				swap(handTest[i][1], handTest[j][1]);
+			}
+		}
+	}
+
+
+	for (int i = 0; i < 5 - 2; i++)
+	{
+		if (handTest[i][1] != handTest[i + 1][1])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+bool isSequenceFullHouse(int** hand)
+{
+	////		CẤP PHÁT ĐỘNG		////
+	int** handTest = new int* [5];
+	for (int i = 0; i < 2; i++)
+	{
+		*(handTest + i) = new int[2];
+	}
+	handTest = hand;
+
+
+	////		SORT RANK		////
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		for (int j = i + 1; j < 5; j++)
+		{
+			if (handTest[i][1] > handTest[j][1])
+			{
+				swap(handTest[i][1], handTest[j][1]);
+			}
+		}
+	}
+
+
+	for (int i = 0; i < 5 - 3; i++)
+	{
+		if (handTest[i][1] != handTest[i + 1][1])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+bool isSequenceFlush(int** hand)
+{
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		if (hand[i][0] != hand[i + 1][0])
+		{
+			return false;
+		}
+	}
+	return true;
 }
