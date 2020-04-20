@@ -60,6 +60,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 
 int** createHandTest(int a[])
 {
+	////		CẤP PHÁT ĐỘNG		////
 	int** hand = new int* [5];
 	for (int i = 0; i < 5; i++)
 	{
@@ -67,6 +68,15 @@ int** createHandTest(int a[])
 	}
 
 
+	int deck[SUITS][RANKS] = { 0 };
+	shuffleCards(deck);
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> a[i];
+	}
+	return 0;
 }
 
 int isFourOfAKind(int** hand)
@@ -127,6 +137,18 @@ void printMatrix(int deck[][RANKS])
 		for (int j = 0; j < RANKS; j++)
 		{
 			cout << deck[i][j] << "\t";
+		}
+		cout << endl;
+	}
+}
+
+void printPointerMatrix(int** Matrix, int row, int column)
+{
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			cout << "\t";
 		}
 		cout << endl;
 	}
