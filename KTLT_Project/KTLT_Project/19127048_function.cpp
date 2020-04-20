@@ -316,10 +316,6 @@ bool checkStraight(int** hand)
 		*(handTest + i) = new int[2];
 	}
 	handTest = hand;
-<<<<<<< HEAD
-=======
-
->>>>>>> 371fbba53f78e3b06cf9ef0d10a886c8db62a585
 
 	////		SORT RANK		////
 	for (int i = 0; i < 5 - 1; i++)

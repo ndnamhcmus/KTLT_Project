@@ -19,3 +19,4 @@ int isTwoPairs(int** hand);
 int isPair(int** hand);
 
 int getHighestCard(int** hand);
+

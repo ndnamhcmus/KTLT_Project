@@ -53,9 +53,17 @@ int isThreeOfAKind(int** hand) {
 			count++;
 		}
 	}
-	if (count == 3 && checkFullHouse(hand) == false)
+	int count1 = 0;
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		if (handTest[i][1] != handTest[i + 1][1])
+		{
+			count1++;
+		}
+	}
+	if (count == 2 && count1 == 2)
 		return 3;
-	if (count != 3 || checkFullHouse(hand) == true)
+	else
 		return 0;
 }
 int isTwoPairs(int** hand) {
@@ -135,5 +143,21 @@ int isPair(int** hand) {
 	
 }
 int getHighestCard(int** hand) {
+	if (isStraightFlush(hand) == 8)
+		return 8;
+	if (isFourOfAKind(hand) == 7)
+		return 7;
+	if (isFullHouse(hand) == 6)
+		return 6;
+	if (isFlush(hand) == 5)
+		return 5;
+	if (isStraight(hand) == 4)
+		return 8;
+	if (isThreeOfAKind(hand) == 3)
+		return 3;
+	if (isTwoPairs(hand) == 2)
+		return 8;
+	if (isPair(hand) == 1)
+		return 8;
 	return 0;
 }
