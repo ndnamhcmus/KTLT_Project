@@ -135,5 +135,5 @@ int isPair(int** hand) {
 	
 }
 int getHighestCard(int** hand) {
-
+	return 0;
 }

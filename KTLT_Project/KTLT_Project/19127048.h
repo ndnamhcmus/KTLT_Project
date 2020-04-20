@@ -35,3 +35,5 @@ bool checkFullHouse(int** hand);
 bool checkFlush(int** hand);
 
 bool checkStraight(int** hand);
+
+int** DellocateDoublePointer(int** Matrix, int Row, int Column);
