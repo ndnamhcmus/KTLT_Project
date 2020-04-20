@@ -100,7 +100,10 @@ int** createHandTest(int a[])
 		}
 		IndexofArray++;
 	}
+
+
 	//printPointerMatrix(result, 5, 2);
+
 
 	return result;
 }
@@ -196,7 +199,7 @@ bool checkFourOfAKind(int** hand)
 	{
 		for (int j = i + 1; j < 5; j++)
 		{
-			if (handTest[i][1] != handTest[j][1])
+			if (handTest[i][1] > handTest[j][1])
 			{
 				swap(handTest[i][1], handTest[j][1]);
 			}
@@ -204,17 +207,28 @@ bool checkFourOfAKind(int** hand)
 	}
 
 
-	int count = 0;
+	int checkcountArray[5] = { 0 };
+	int IndexofcheckTemp = 0;
+
+
+	int count = 1;
 	for (int i = 0; i < 5 - 1; i++)
 	{
 		if (handTest[i][1] == handTest[i + 1][1])
 		{
 			count++;
+			checkcountArray[IndexofcheckTemp] = count;
+
 		}
+		else
+		{
+			count = 1;
+			IndexofcheckTemp++;
+			checkcountArray[IndexofcheckTemp] = count;
+		}
+
 	}
-
-
-	if (count == 4)
+	if ((checkcountArray[0] == 4 && checkcountArray[1] == 1) || (checkcountArray[0] == 1 || checkcountArray[1] == 4))
 	{
 		return true;
 	}
@@ -240,7 +254,7 @@ bool checkFullHouse(int** hand)
 	{
 		for (int j = i + 1; j < 5; j++)
 		{
-			if (handTest[i][1] != handTest[j][1])
+			if (handTest[i][1] > handTest[j][1])
 			{
 				swap(handTest[i][1], handTest[j][1]);
 			}
@@ -248,17 +262,29 @@ bool checkFullHouse(int** hand)
 	}
 
 
-	int count = 0;
+	int checkcountArray[5] = { 0 };
+	int IndexofcheckTemp = 0;
+
+
+	int count = 1;
 	for (int i = 0; i < 5 - 1; i++)
 	{
+		
 		if (handTest[i][1] == handTest[i + 1][1])
 		{
 			count++;
+			checkcountArray[IndexofcheckTemp] = count;
+		}
+		else
+		{
+			count = 1;
+			IndexofcheckTemp++;
+			checkcountArray[IndexofcheckTemp] = count;
 		}
 	}
 
 
-	if (count == 3)
+	if ((checkcountArray[0] == 3 && checkcountArray[1] == 2) || (checkcountArray[0] == 2 || checkcountArray[1] == 3))
 	{
 		return true;
 	}
@@ -288,6 +314,7 @@ bool checkStraight(int** hand)
 	{
 		*(handTest + i) = new int[2];
 	}
+	handTest = hand;
 
 
 	////		SORT RANK		////
@@ -306,11 +333,23 @@ bool checkStraight(int** hand)
 	////		KIỂM TRA RANK LIÊN TIẾP		////
 	for (int i = 0; i < 5 - 1; i++)
 	{
-		
 		if (handTest[i][1] + 1 != handTest[i + 1][1])
 		{
 			return false;
 		}
 	}
 	return true;
+}
+
+int** DellocateDoublePointer(int** Matrix, int Row, int Column)
+{
+	for (int i = 0; i < Column; i++)
+	{
+		delete[] * (Matrix + i);
+	}
+	delete[] Matrix;
+	Matrix = nullptr;
+
+
+	return Matrix;
 }

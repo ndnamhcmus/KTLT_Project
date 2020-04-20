@@ -10,9 +10,6 @@ void main()
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	shuffleCards(deck);
-	//printMatrix(deck);
-	
-
 	//printCardsShuffling(deck, suits, ranks);
 
 
@@ -24,7 +21,7 @@ void main()
 
 	int array[5];
 	int** test = createHandTest(array);
-	cout << isFourOfAKind(test);
+	
 
 	system("pause");
 }
