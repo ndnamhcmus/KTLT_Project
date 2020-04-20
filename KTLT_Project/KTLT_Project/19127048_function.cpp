@@ -30,10 +30,10 @@ void shuffleCards(int deck[][RANKS])
 int** dealingForHand(int deck[SUITS][FACES])
 {
 	////		CẤP PHÁT ĐỘNG		////
-	int** hand = new int* [5];
+	int** result = new int* [5];
 	for (int i = 0; i < 5; i++)
 	{
-		*(hand + i) = new int[2];
+		*(result + i) = new int[2];
 	}
 
 
@@ -47,15 +47,15 @@ int** dealingForHand(int deck[SUITS][FACES])
 			{
 				if (deck[i][j] == card)
 				{
-					hand[IndexofHand][0] = i;
-					hand[IndexofHand][1] = j;
+					result[IndexofHand][0] = i;
+					result[IndexofHand][1] = j;
 					IndexofHand++;
 				}
 			}
 		}
 		card++;
 	}
-	return hand;
+	return result;
 }
 
 int** createHandTest(int a[])
@@ -72,7 +72,7 @@ int** createHandTest(int a[])
 int isFourOfAKind(int** hand)
 {
 	////		SO SÁNH CÁC 4 LÁ BÀI LIỀN KỀ		////
-	if (isSequenceFourOfAKind(hand))
+	if (checkFourOfAKind(hand))
 	{
 		return 7;
 	}
@@ -84,7 +84,7 @@ int isFourOfAKind(int** hand)
 
 int isFullHouse(int** hand)
 {
-	if (isSequenceFullHouse)
+	if (checkFullHouse)
 	{
 		return 6;
 	}
@@ -96,9 +96,21 @@ int isFullHouse(int** hand)
 
 int isFlush(int** hand)
 {
-	if (isSequenceFlush)
+	if (checkFlush)
 	{
 		return 5;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int isStraight(int** hand)
+{
+	if (checkStraight)
+	{
+		return 4;
 	}
 	else
 	{
@@ -120,7 +132,7 @@ void printMatrix(int deck[][RANKS])
 	}
 }
 
-bool isSequenceFourOfAKind(int** hand)
+bool checkFourOfAKind(int** hand)
 {
 	////		CẤP PHÁT ĐỘNG		////
 	int** handTest = new int* [5];
@@ -154,7 +166,7 @@ bool isSequenceFourOfAKind(int** hand)
 	return true;
 }
 
-bool isSequenceFullHouse(int** hand)
+bool checkFullHouse(int** hand)
 {
 	////		CẤP PHÁT ĐỘNG		////
 	int** handTest = new int* [5];
@@ -188,11 +200,46 @@ bool isSequenceFullHouse(int** hand)
 	return true;
 }
 
-bool isSequenceFlush(int** hand)
+bool checkFlush(int** hand)
 {
 	for (int i = 0; i < 5 - 1; i++)
 	{
 		if (hand[i][0] != hand[i + 1][0])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+bool checkStraight(int** hand)
+{
+	////		CẤP PHÁT ĐỘNG		////
+	int** handTest = new int* [5];
+	for (int i = 0; i < 5; i++)
+	{
+		*(handTest + i) = new int[2];
+	}
+
+
+	////		SORT RANK		////
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		for (int j = i + 1; j < 5; j++)
+		{
+			if (handTest[i][1] > handTest[j][1])
+			{
+				swap(handTest[i][1], handTest[j][1]);
+			}
+		}
+	}
+
+
+	////		KIỂM TRA RANK LIÊN TIẾP		////
+	for (int i = 0; i < 5 - 1; i++)
+	{
+		
+		if (handTest[i][1] + 1 != handTest[i + 1][1])
 		{
 			return false;
 		}
