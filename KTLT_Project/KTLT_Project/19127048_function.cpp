@@ -86,11 +86,11 @@ int** createHandTest(int a[])
 	int IndexofResult = 0;
 	while (IndexofArray < 5)
 	{
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < SUITS; i++)
 		{
-			for (int j = 0; j < 13; j++)
+			for (int j = 0; j < RANKS; j++)
 			{
-				if (a[IndexofArray] == deck[i][j])
+				if (deck[i][j] == a[IndexofArray])
 				{
 					result[IndexofResult][0] = i;
 					result[IndexofResult][1] = j;
@@ -100,7 +100,8 @@ int** createHandTest(int a[])
 		}
 		IndexofArray++;
 	}
-	
+	//printPointerMatrix(result, 5, 2);
+
 	return result;
 }
 
@@ -173,7 +174,7 @@ void printPointerMatrix(int** Matrix, int row, int column)
 	{
 		for (int j = 0; j < column; j++)
 		{
-			cout << "\t";
+			cout << *(*(Matrix + i) + j) << "\t";
 		}
 		cout << endl;
 	}
