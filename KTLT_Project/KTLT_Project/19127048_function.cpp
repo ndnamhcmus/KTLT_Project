@@ -478,7 +478,10 @@ int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row)
 	}
 	////		GIẢI PHÓNG MẢNG 3D		////
 	delete[] Array3D;
+
+
 	Array3D = nullptr;
+
 
 	return Array3D;
 }
