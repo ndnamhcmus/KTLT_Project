@@ -50,9 +50,8 @@ int** dealingForHand(int deck[SUITS][FACES])
 				{
 					is_found = true;	//	DÙNG ĐỂ BỎ QUA CÁC LÁ BÀI PHÍA SAU NẾU ĐÃ TÌM THẤY LÁ BÀI CẦN TÌM
 
-
-					result[IndexofResult][0] = i;
-					result[IndexofResult][1] = j;
+					*(*(result + IndexofResult) + 0) = i;
+					*(*(result + IndexofResult) + 1) = j;
 					IndexofResult++;
 
 
@@ -65,6 +64,8 @@ int** dealingForHand(int deck[SUITS][FACES])
 			}
 		}
 	}
+
+
 	return result;
 }
 
@@ -184,23 +185,67 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 	////		CON TRỎ CẤP 2 LƯU CON TRỎ CẤP 1 ( DÒNG CỦA MA TRẬN )		////
 	for (int i = 0; i < n; i++)
 	{
-		
 		*(Players + i) = new int* [5];
 	}
 	////		CẤP PHÁT ĐỘNG MẢNG 1 CHIỀU ( CỘT CỦA MA TRẬN )		////
-	for (int i = 0; i < 5; i++)
-	{
-		*(*(Players + i)) = new int[2];
-	}
-
-
-	bool is_found = false;
-	int IndexofPlayers = 0;
 	for (int i = 0; i < n; i++)
 	{
-
+		for (int j = 0; j < 5; j++)
+		{
+			*(*(Players + i) + j) = new int[2];
+		}
 	}
+
+
+	bool is_found;
+	int card = 1;	// dùng để xác định lá bài đầu tiên chia cho người chơi
+	int cardForDealing;		// dùng để chia bài
+	int IndexofPlayers = 0;
+	for (int Player = 0; Player < n; Player++)
+	{
+		is_found = false;
+		cardForDealing = card;
+		for (int times = 0; times < 5; times++)
+		{
+			is_found = false;
+			for (int i = 0; i < SUITS; i++)
+			{
+				for (int j = 0; j < RANKS; j++)
+				{
+					if (cardForDealing == deck[i][j])
+					{
+						is_found = true;
+
+
+						*(*(*(Players + Player) + IndexofPlayers) + 0) = i;
+						*(*(*(Players + Player) + IndexofPlayers) + 1) = j;
+						/*Players[Player][IndexofPlayers][0] = i;
+						Players[Player][IndexofPlayers][1] = j;*/
+						IndexofPlayers++;
+
+
+						break;
+					}
+				}
+				if (is_found)
+				{
+					break;
+				}
+			}
+			cardForDealing = cardForDealing + n;
+		}
+		IndexofPlayers = 0;
+		card++;
+	}
+
+
+	return Players;
 }
+//
+//int* rankingHands(int*** hands, int n)
+//{
+//
+//}
 ////////////////////////////////////////////////////////////////////////////////
 
 void printMatrix(int deck[][RANKS])
@@ -222,6 +267,23 @@ void printPointerMatrix(int** Matrix, int row, int column)
 		for (int j = 0; j < column; j++)
 		{
 			cout << *(*(Matrix + i) + j) << "\t";
+		}
+		cout << endl;
+	}
+}
+
+void print3DArray(int*** ThreeDArray, int size, int row, int column)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << i << endl;
+		for (int j = 0; j < row; j++)
+		{
+			for (int k = 0; k < column; k++)
+			{
+				cout << ThreeDArray[i][j][k] << "\t";
+			}
+			cout << endl;
 		}
 		cout << endl;
 	}

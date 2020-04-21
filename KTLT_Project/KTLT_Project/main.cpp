@@ -1,7 +1,7 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
-void main()
+int main()
 {
 	int deck[SUITS][RANKS] = { 0 };
 	const char* suits[SUITS] = { "Hearts", "Diamonds", "Clubs", "Spades" };
@@ -11,8 +11,8 @@ void main()
 
 	shuffleCards(deck);
 	//printCardsShuffling(deck, suits, ranks);
-	//printMatrix(deck);
-	//printPointerMatrix(dealingForHand(deck), 5, 2);
+	/*printMatrix(deck);
+	printPointerMatrix(dealingForHand(deck), 5, 2);*/
 	
 
 	//int** hand;
@@ -24,5 +24,11 @@ void main()
 	/*int array[5];
 	int** test = createHandTest(array);
 	cout << "Highest Card is: " << isStraight(test) << endl;*/
+
+
+	printMatrix(deck);
+	int*** test = dealingForHands(deck, 3);
+	print3DArray(test, 3, 5, 2);
 	system("pause");
+	return 0;
 }

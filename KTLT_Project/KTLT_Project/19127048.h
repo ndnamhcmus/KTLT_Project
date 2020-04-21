@@ -24,6 +24,8 @@ int isStraight(int** hand);
 
 int*** dealingForHands(int deck[SUITS][FACES], int n);
 
+int* rankingHands(int*** hands, int n);
+
 ////////////////////////////////////////////////////////////////////////////////
 
 void printMatrix(int deck[][RANKS]);
@@ -39,3 +41,5 @@ bool checkFlush(int** hand);
 bool checkStraight(int** hand);
 
 int** DellocateDoublePointer(int** Matrix, int Row, int Column);
+
+void print3DArray(int*** ThreeDArray, int size, int row, int column);
