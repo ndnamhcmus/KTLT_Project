@@ -20,3 +20,5 @@ int isPair(int** hand);
 
 int getHighestCard(int** hand);
 
+int getStatusOfHand(int** hand);
+
