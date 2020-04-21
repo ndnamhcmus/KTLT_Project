@@ -37,23 +37,33 @@ int** dealingForHand(int deck[SUITS][FACES])
 	}
 
 
-	int card = 1;
+	bool is_found = false;
 	int IndexofResult = 0;
-	while (card <= 5)
+	for (int card = 1; card <= 5; card++)
 	{
+		is_found = false;
 		for (int i = 0; i < SUITS; i++)
 		{
 			for (int j = 0; j < RANKS; j++)
 			{
 				if (deck[i][j] == card)
 				{
+					is_found = true;	//	DÙNG ĐỂ BỎ QUA CÁC LÁ BÀI PHÍA SAU NẾU ĐÃ TÌM THẤY LÁ BÀI CẦN TÌM
+
+
 					result[IndexofResult][0] = i;
 					result[IndexofResult][1] = j;
 					IndexofResult++;
+
+
+					break;
 				}
 			}
+			if (is_found)	//	DÙNG ĐỂ BỎ QUA CÁC LÁ BÀI PHÍA SAU NẾU ĐÃ TÌM THẤY LÁ BÀI CẦN TÌM
+			{
+				break;
+			}
 		}
-		card++;
 	}
 	return result;
 }
@@ -74,7 +84,7 @@ int** createHandTest(int a[])
 	printMatrix(deck);
 
 
-	  ////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
+	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
 	for (int i = 0; i < 5; i++)
 	{
 		cout << "Enter your card number: ";
@@ -83,27 +93,35 @@ int** createHandTest(int a[])
 
 
 
-	int IndexofArray = 0;
+	////		TÌM CÁC LÁ BÀI TRONG MA TRẬN DECK		////
+	bool is_found = false;
 	int IndexofResult = 0;
-	while (IndexofArray < 5)
+	for (int IndexorArray = 0; IndexorArray < 5; IndexorArray++)
 	{
+		bool is_found = false;
 		for (int i = 0; i < SUITS; i++)
 		{
 			for (int j = 0; j < RANKS; j++)
 			{
-				if (deck[i][j] == a[IndexofArray])
+				if (deck[i][j] == a[IndexorArray])
 				{
+					is_found = true;
+
+
 					result[IndexofResult][0] = i;
 					result[IndexofResult][1] = j;
 					IndexofResult++;
+
+
+					break;
 				}
 			}
+			if (is_found)
+			{
+				break;
+			}
 		}
-		IndexofArray++;
 	}
-
-
-	//printPointerMatrix(result, 5, 2);
 
 
 	return result;
@@ -316,6 +334,7 @@ bool checkStraight(int** hand)
 		*(handTest + i) = new int[2];
 	}
 	handTest = hand;
+
 
 	////		SORT RANK		////
 	for (int i = 0; i < 5 - 1; i++)

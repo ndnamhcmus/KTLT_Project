@@ -11,7 +11,9 @@ void main()
 
 	shuffleCards(deck);
 	//printCardsShuffling(deck, suits, ranks);
-
+	//printMatrix(deck);
+	//printPointerMatrix(dealingForHand(deck), 5, 2);
+	
 
 	//int** hand;
 	//cout << "Player 1" << endl;
@@ -19,8 +21,8 @@ void main()
 	//printHand(hand, suits, ranks);
 
 
-	int array[5];
+	/*int array[5];
 	int** test = createHandTest(array);
-	cout << "Highest Card is: " << getHighestCard(test) << endl;
+	cout << "Highest Card is: " << getHighestCard(test) << endl;*/
 	system("pause");
 }
