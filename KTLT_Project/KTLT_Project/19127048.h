@@ -22,6 +22,8 @@ int isFlush(int** hand);
 
 int isStraight(int** hand);
 
+int*** dealingForHands(int deck[SUITS][FACES], int n);
+
 ////////////////////////////////////////////////////////////////////////////////
 
 void printMatrix(int deck[][RANKS]);

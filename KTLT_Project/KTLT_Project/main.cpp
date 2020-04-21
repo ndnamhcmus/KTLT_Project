@@ -23,6 +23,6 @@ void main()
 
 	/*int array[5];
 	int** test = createHandTest(array);
-	cout << "Highest Card is: " << getHighestCard(test) << endl;*/
+	cout << "Highest Card is: " << isStraight(test) << endl;*/
 	system("pause");
 }

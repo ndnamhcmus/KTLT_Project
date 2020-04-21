@@ -176,6 +176,31 @@ int isStraight(int** hand)
 	}
 }
 
+int*** dealingForHands(int deck[SUITS][FACES], int n)
+{
+	////		CẤP PHÁT ĐỘNG		////
+	////		CON TRỎ CẤP 3 LƯU CON TRỎ CẤP 2			////
+	int*** Players = new int** [n];
+	////		CON TRỎ CẤP 2 LƯU CON TRỎ CẤP 1 ( DÒNG CỦA MA TRẬN )		////
+	for (int i = 0; i < n; i++)
+	{
+		
+		*(Players + i) = new int* [5];
+	}
+	////		CẤP PHÁT ĐỘNG MẢNG 1 CHIỀU ( CỘT CỦA MA TRẬN )		////
+	for (int i = 0; i < 5; i++)
+	{
+		*(*(Players + i)) = new int[2];
+	}
+
+
+	bool is_found = false;
+	int IndexofPlayers = 0;
+	for (int i = 0; i < n; i++)
+	{
+
+	}
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 void printMatrix(int deck[][RANKS])
