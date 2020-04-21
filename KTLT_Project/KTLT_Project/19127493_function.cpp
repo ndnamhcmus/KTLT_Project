@@ -139,9 +139,9 @@ int isPair(int** hand) {
 		}
 	}
 	if (count == 3 && checkFlush(hand) == false)
-		return 0;
-	else 
 		return 1;
+	else 
+		return 0;
 	
 }
 int getHighestCard(int** hand) {
@@ -154,13 +154,13 @@ int getHighestCard(int** hand) {
 	if (isFlush(hand) == 5)
 		return 5;
 	if (isStraight(hand) == 4)
-		return 8;
+		return 4;
 	if (isThreeOfAKind(hand) == 3)
 		return 3;
 	if (isTwoPairs(hand) == 2)
-		return 8;
+		return 2;
 	if (isPair(hand) == 1)
-		return 8;
+		return 1;
 	return 0;
 }
 int getStatusOfHand(int** hand) {
