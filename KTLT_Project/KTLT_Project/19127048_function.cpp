@@ -198,10 +198,10 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 	}
 
 
-	bool is_found;
 	int card = 1;	// dùng để xác định lá bài đầu tiên chia cho người chơi
 	int cardForDealing;		// dùng để chia bài
 	int IndexofPlayers = 0;
+	bool is_found;
 	for (int Player = 0; Player < n; Player++)
 	{
 		is_found = false;
@@ -215,9 +215,10 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 				{
 					if (cardForDealing == deck[i][j])
 					{
-						is_found = true;
+						is_found = true;	//	dừng lại không quét qua các lá bài phía sau nếu đã tìm thấy
 
 
+						////		LƯU VỊ TRÍ CỦA LÁ BÀI TRONG MA TRẬN DECK			////
 						*(*(*(Players + Player) + IndexofPlayers) + 0) = i;
 						*(*(*(Players + Player) + IndexofPlayers) + 1) = j;
 						IndexofPlayers++;
@@ -231,10 +232,10 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 					break;
 				}
 			}
-			cardForDealing = cardForDealing + n;
+			cardForDealing = cardForDealing + n;	// chia theo vòng tròn
 		}
-		IndexofPlayers = 0;
-		card++;
+		IndexofPlayers = 0;		// reset Index của mảng 3D Players
+		card++;		// tăng lá bài đầu tiên chia cho từng người lên
 	}
 
 
@@ -245,6 +246,7 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 //{
 //
 //}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 void printMatrix(int deck[][RANKS])
