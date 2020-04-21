@@ -48,7 +48,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 			{
 				if (deck[i][j] == card)
 				{
-					is_found = true;	//	DÙNG ĐỂ BỎ QUA CÁC LÁ BÀI PHÍA SAU NẾU ĐÃ TÌM THẤY LÁ BÀI CẦN TÌM
+					is_found = true;	//	dừng lại không quét qua các lá bài phía sau nếu đã tìm thấy
 
 
 					*(*(result + IndexofResult) + 0) = i;
@@ -59,7 +59,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 					break;
 				}
 			}
-			if (is_found)	//	DÙNG ĐỂ BỎ QUA CÁC LÁ BÀI PHÍA SAU NẾU ĐÃ TÌM THẤY LÁ BÀI CẦN TÌM
+			if (is_found)	//	dừng lại không quét qua các lá bài phía sau nếu đã tìm thấy
 			{
 				break;
 			}
@@ -240,7 +240,7 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 
 	return Players;
 }
-//
+
 //int* rankingHands(int*** hands, int n)
 //{
 //
@@ -271,7 +271,7 @@ void printPointerMatrix(int** Matrix, int row, int column)
 	}
 }
 
-void print3DArray(int*** ThreeDArray, int size, int row, int column)
+void print3DArray(int*** Array3D, int size, int row, int column)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -280,7 +280,7 @@ void print3DArray(int*** ThreeDArray, int size, int row, int column)
 		{
 			for (int k = 0; k < column; k++)
 			{
-				cout << ThreeDArray[i][j][k] << "\t";
+				cout << Array3D[i][j][k] << "\t";
 			}
 			cout << endl;
 		}
@@ -446,9 +446,9 @@ bool checkStraight(int** hand)
 	return true;
 }
 
-int** DellocateDoublePointer(int** Matrix, int Row, int Column)
+int** DellocateDoublePointer(int** Matrix, int Row)
 {
-	for (int i = 0; i < Column; i++)
+	for (int i = 0; i < Row; i++)
 	{
 		delete[] * (Matrix + i);
 	}
@@ -457,4 +457,26 @@ int** DellocateDoublePointer(int** Matrix, int Row, int Column)
 
 
 	return Matrix;
+}
+
+int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row)
+{
+	////		GIẢI PHÓNG MẢNG 1D		////
+	for (int i = 0; i < sizeof3D; i++)
+	{
+		for (int j = 0; j < Row; j++)
+		{
+			delete[] * (*(Array3D + i) + j);
+		}
+	}
+	////		GIẢI PHÓNG MA TRẬN		////
+	for (int i = 0; i < sizeof3D; i++)
+	{
+		delete[] * (Array3D + i);
+	}
+	////		GIẢI PHÓNG MẢNG 3D		////
+	delete[] Array3D;
+	Array3D = nullptr;
+
+	return Array3D;
 }

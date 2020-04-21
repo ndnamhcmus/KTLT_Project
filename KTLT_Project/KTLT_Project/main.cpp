@@ -26,9 +26,9 @@ int main()
 	cout << "Highest Card is: " << isStraight(test) << endl;*/
 
 
-	printMatrix(deck);
+	/*printMatrix(deck);
 	int*** test = dealingForHands(deck, 3);
-	print3DArray(test, 3, 5, 2);
+	DellocateTriplePointer(test, 3, 5);*/
 	system("pause");
 	return 0;
 }

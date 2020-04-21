@@ -32,6 +32,8 @@ void printMatrix(int deck[][RANKS]);
 
 void printPointerMatrix(int** Matrix, int row, int column);
 
+void print3DArray(int*** Array3D, int size, int row, int column);
+
 bool checkFourOfAKind(int** hand);
 
 bool checkFullHouse(int** hand);
@@ -40,6 +42,6 @@ bool checkFlush(int** hand);
 
 bool checkStraight(int** hand);
 
-int** DellocateDoublePointer(int** Matrix, int Row, int Column);
+int** DellocateDoublePointer(int** Matrix, int Row);
 
-void print3DArray(int*** ThreeDArray, int size, int row, int column);
+int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row);
