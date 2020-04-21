@@ -242,10 +242,35 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 	return Players;
 }
 
-//int* rankingHands(int*** hands, int n)
-//{
-//
-//}
+int* rankingHands(int*** hands, int n)
+{
+	int* RankofThePlayer = new int[n];
+	int* ScoreofThePlayer = new int[n];
+
+
+	for (int i = 0; i < n; i++)
+	{
+		ScoreofThePlayer[i] = getStatusOfHand(*(hands + i));
+		RankofThePlayer[i] = i + 1;
+	}
+
+
+	////		SORT RANK		////
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (ScoreofThePlayer[i] < ScoreofThePlayer[j])
+			{
+				swap(RankofThePlayer[i], RankofThePlayer[j]);
+			}
+		}
+	}
+	delete[] ScoreofThePlayer;
+
+
+	return RankofThePlayer;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
