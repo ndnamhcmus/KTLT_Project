@@ -50,6 +50,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 				{
 					is_found = true;	//	DÙNG ĐỂ BỎ QUA CÁC LÁ BÀI PHÍA SAU NẾU ĐÃ TÌM THẤY LÁ BÀI CẦN TÌM
 
+
 					*(*(result + IndexofResult) + 0) = i;
 					*(*(result + IndexofResult) + 1) = j;
 					IndexofResult++;
@@ -219,8 +220,6 @@ int*** dealingForHands(int deck[SUITS][FACES], int n)
 
 						*(*(*(Players + Player) + IndexofPlayers) + 0) = i;
 						*(*(*(Players + Player) + IndexofPlayers) + 1) = j;
-						/*Players[Player][IndexofPlayers][0] = i;
-						Players[Player][IndexofPlayers][1] = j;*/
 						IndexofPlayers++;
 
 
