@@ -1,7 +1,7 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
-void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* faces[]) {
+void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* rank[]) {
 	
 	int key = 1;
 	int time = 0;
@@ -9,14 +9,14 @@ void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* fac
 		for (int i = 0; i < SUITS; i++)
 			for (int j = 0; j < RANKS; j++)
 				if (deck[i][j] == key) {
-					cout << "(" << suits[i] << ", " << faces[j] << ")" << endl;
+					cout << "(" << suits[i] << ", " << rank[j] << ")" << endl;
 					key++;
 				}
 }
 
-void printHand(int** hand,const char* suits[],const char* faces[]) {
+void printHand(int** hand,const char* suits[],const char* rank[]) {
 	for (int i = 0; i < 5; i++)
-		cout << "(" << suits[hand[i][0]] << ", " << faces[hand[i][1]] << ")" << endl;
+		cout << "(" << suits[hand[i][0]] << ", " << rank[hand[i][1]] << ")" << endl;
 }
 
 int isStraightFlush(int** hand) {
@@ -145,6 +145,18 @@ int isPair(int** hand) {
 	
 }
 int getHighestCard(int** hand) {
+	int index_of_HighestCard = hand[0][1];
+	return 0;
+}
+int getStatusOfHand(int** hand) {
+	return getHighestMark(hand);
+}
+int* evaluateHands(int* ranked_hands, int s) {
+	
+	
+}
+////////////////////////////////////////////////////////////////////////////////
+int getHighestMark(int** hand) {
 	if (isStraightFlush(hand) == 8)
 		return 8;
 	if (isFourOfAKind(hand) == 7)
@@ -163,12 +175,3 @@ int getHighestCard(int** hand) {
 		return 1;
 	return 0;
 }
-int getStatusOfHand(int** hand) {
-	return getHighestCard(hand);
-}
-int* evaluateHands(int* ranked_hands, int s) {
-	
-	
-}
-////////////////////////////////////////////////////////////////////////////////
-
