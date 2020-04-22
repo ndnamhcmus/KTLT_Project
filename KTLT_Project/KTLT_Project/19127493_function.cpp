@@ -14,7 +14,7 @@ void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* fac
 				}
 }
 
-void printHand(int** hand,const char* suits[],const char* faces[]) {
+void printHand(int** hand, const char* suits[], const char* faces[]) {
 	for (int i = 0; i < 5; i++)
 		cout << "(" << suits[hand[i][0]] << ", " << faces[hand[i][1]] << ")" << endl;
 }
