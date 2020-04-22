@@ -86,7 +86,7 @@ int isTwoPairs(int** hand) {
 			}
 		}
 	}
-	///         Check diffrent		////
+	///         Check different		////
 	int count = 0;
 	for (int i = 0; i < 5 - 1; i++)
 	{
@@ -98,12 +98,14 @@ int isTwoPairs(int** hand) {
 	if (count != 2)
 		return 0;
 	else {
-		if (handTest[0][1] == handTest[1][1] && handTest[2][1] == handTest[3][1])
-			return 2;
-		if (handTest[1][1] == handTest[2][1] && handTest[3][1] == handTest[4][1])
-			return 2;
-		if (handTest[0][1] == handTest[1][1] && handTest[3][1] == handTest[4][1])
-			return 2;
+		if (checkFlush(hand) == false) {
+			if (handTest[0][1] == handTest[1][1] && handTest[2][1] == handTest[3][1])
+				return 2;
+			if (handTest[1][1] == handTest[2][1] && handTest[3][1] == handTest[4][1])
+				return 2;
+			if (handTest[0][1] == handTest[1][1] && handTest[3][1] == handTest[4][1])
+				return 2;
+		}
 		return 0;
 	}
 }
@@ -127,7 +129,7 @@ int isPair(int** hand) {
 			}
 		}
 	}
-	///         Check diffrent		////
+	///         Check different		////
 	int count = 0;
 	for (int i = 0; i < 5 - 1; i++)
 	{
@@ -136,10 +138,10 @@ int isPair(int** hand) {
 			count++;
 		}
 	}
-	if (count != 3)
-		return 0;
-	else 
+	if (count == 3 && checkFlush(hand) == false)
 		return 1;
+	else 
+		return 0;
 	
 }
 int getHighestCard(int** hand) {
@@ -152,13 +154,13 @@ int getHighestCard(int** hand) {
 	if (isFlush(hand) == 5)
 		return 5;
 	if (isStraight(hand) == 4)
-		return 8;
+		return 4;
 	if (isThreeOfAKind(hand) == 3)
 		return 3;
 	if (isTwoPairs(hand) == 2)
-		return 8;
+		return 2;
 	if (isPair(hand) == 1)
-		return 8;
+		return 1;
 	return 0;
 }
 int getStatusOfHand(int** hand) {
@@ -167,3 +169,5 @@ int getStatusOfHand(int** hand) {
 int* evaluateHands(int* ranked_hands, int s) {
 	return 0;
 }
+////////////////////////////////////////////////////////////////////////////////
+
