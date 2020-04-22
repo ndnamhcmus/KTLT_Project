@@ -14,7 +14,11 @@ void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* ran
 				}
 }
 
+<<<<<<< HEAD
 void printHand(int** hand,const char* suits[],const char* rank[]) {
+=======
+void printHand(int** hand, const char* suits[], const char* faces[]) {
+>>>>>>> 5aa28b609827fa4c84bacf204940486bc94b9a98
 	for (int i = 0; i < 5; i++)
 		cout << "(" << suits[hand[i][0]] << ", " << rank[hand[i][1]] << ")" << endl;
 }
@@ -175,3 +179,15 @@ int getHighestMark(int** hand) {
 		return 1;
 	return 0;
 }
+<<<<<<< HEAD
+=======
+int getStatusOfHand(int** hand) {
+	return getHighestCard(hand);
+}
+int* evaluateHands(int* ranked_hands, int s) {
+	return 0;
+	
+}
+////////////////////////////////////////////////////////////////////////////////
+
+>>>>>>> 5aa28b609827fa4c84bacf204940486bc94b9a98
