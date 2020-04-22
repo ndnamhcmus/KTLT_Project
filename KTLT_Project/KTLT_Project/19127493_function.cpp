@@ -167,7 +167,8 @@ int getStatusOfHand(int** hand) {
 	return getHighestCard(hand);
 }
 int* evaluateHands(int* ranked_hands, int s) {
-	return 0;
+	
+	
 }
 ////////////////////////////////////////////////////////////////////////////////
 
