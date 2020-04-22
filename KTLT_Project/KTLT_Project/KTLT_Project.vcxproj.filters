@@ -24,6 +24,9 @@
     <ClCompile Include="19127493_function.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="19127048_menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="19127048.h">

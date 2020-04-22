@@ -1,6 +1,7 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
+////		PROTOTYPE		////
 void shuffleCards(int deck[][RANKS])
 {
 	int number = 1;
@@ -27,7 +28,7 @@ void shuffleCards(int deck[][RANKS])
 	}
 }
 
-int** dealingForHand(int deck[SUITS][RANKS])
+int** dealingForHand(int deck[][RANKS])
 {
 	////		CẤP PHÁT ĐỘNG		////
 	int** result = new int* [5];
@@ -44,7 +45,7 @@ int** dealingForHand(int deck[SUITS][RANKS])
 		handTest[i] = 1 + rand() % (52 + 1 - 1);
 		for (int j = 0; j < i; j++)		// kiểm tra các lá bài trên tay có bị trùng nhau không
 		{
-			while (handTest[i] == handTest[j])
+			while (handTest[i] == handTest[j])	// trùng thì chạy vòng lặp đến khi hết trùng
 			{
 				handTest[i] = 1 + rand() % (52 + 1 - 1);
 			}
@@ -85,7 +86,7 @@ int** dealingForHand(int deck[SUITS][RANKS])
 	return result;
 }
 
-int** createHandTest(int deck[SUITS][RANKS], int a[])
+int** createHandTest(int deck[][RANKS], int a[])
 {
 	////		CẤP PHÁT ĐỘNG DÙNG ĐỂ LƯU CÁC VỊ TRÍ TRONG BỘ BÀI		////
 	int** result = new int* [5];
@@ -192,7 +193,7 @@ int isStraight(int** hand)
 	}
 }
 
-int*** dealingForHands(int deck[SUITS][RANKS], int n)
+int*** dealingForHands(int deck[][RANKS], int n)
 {
 	////		CẤP PHÁT ĐỘNG		////
 	////		CON TRỎ CẤP 3 LƯU CON TRỎ CẤP 2			////

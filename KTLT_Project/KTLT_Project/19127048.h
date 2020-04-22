@@ -27,6 +27,18 @@ int* rankingHands(int*** hands, int n);
 
 ////////////////////////////////////////////////////////////////////////////////
 
+////		MENU		////
+
+void GameMode();
+
+void Levelofdifficult();
+
+void SinglePlayer();
+
+void Multiplayer(int n, int s);
+
+////////////////////////////////////////////////////////////////////////////////
+
 void printMatrix(int deck[][RANKS]);
 
 void printPointerMatrix(int** Matrix, int row, int column);
