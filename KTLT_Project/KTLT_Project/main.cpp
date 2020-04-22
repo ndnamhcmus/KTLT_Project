@@ -28,8 +28,8 @@ int main()
 
 
 	printMatrix(deck);
-	int*** test = dealingForHands(deck, 3);
-	rankingHands(test, 3);
+	int*** test = dealingForHands(deck, 5);
+	rankingHands(test, 5);
 	system("pause");
 	return 0;
 }
