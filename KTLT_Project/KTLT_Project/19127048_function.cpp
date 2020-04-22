@@ -269,12 +269,6 @@ int* rankingHands(int*** hands, int n)
 	}
 
 
-	for (int i = 0; i < n; i++)
-	{
-		cout << ScoreofThePlayer[i] << "\t" << RankofThePlayer[i] << endl;
-	}
-
-
 	////		SORT RANK		////
 	for (int i = 0; i < n - 1; i++)
 	{
@@ -288,11 +282,7 @@ int* rankingHands(int*** hands, int n)
 		}
 	}
 
-	cout << "Rank:\n";
-	for (int i = 0; i < n; i++)
-	{
-		cout << RankofThePlayer[i] << endl;
-	}
+	
 	delete[] ScoreofThePlayer;
 	ScoreofThePlayer = nullptr;
 

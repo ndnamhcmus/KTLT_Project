@@ -27,9 +27,9 @@ int main()
 	cout << "Highest Card is: " << isStraight(test) << endl;*/
 
 
-	printMatrix(deck);
+	/*printMatrix(deck);
 	int*** test = dealingForHands(deck, 5);
-	rankingHands(test, 5);
+	rankingHands(test, 5);*/
 	system("pause");
 	return 0;
 }
