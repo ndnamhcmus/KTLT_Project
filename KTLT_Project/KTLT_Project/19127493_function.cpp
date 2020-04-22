@@ -13,19 +13,14 @@ void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* ran
 					key++;
 				}
 }
-
-<<<<<<< HEAD
-void printHand(int** hand,const char* suits[],const char* rank[]) {
-=======
-void printHand(int** hand, const char* suits[], const char* faces[]) {
->>>>>>> 5aa28b609827fa4c84bacf204940486bc94b9a98
+void printHand(int** hand, const char* suits[], const char* rank[]) {
 	for (int i = 0; i < 5; i++)
 		cout << "(" << suits[hand[i][0]] << ", " << rank[hand[i][1]] << ")" << endl;
 }
 
 int isStraightFlush(int** hand) {
 	if (checkStraight(hand) && checkFlush(hand))
-		return 8;
+		return 1;
 	return 0;
 }
 int isThreeOfAKind(int** hand) {
@@ -66,7 +61,7 @@ int isThreeOfAKind(int** hand) {
 		}
 	}
 	if (count == 2 && count1 == 2)
-		return 3;
+		return 1;
 	else
 		return 0;
 }
@@ -104,11 +99,11 @@ int isTwoPairs(int** hand) {
 	else {
 		if (checkFlush(hand) == false) {
 			if (handTest[0][1] == handTest[1][1] && handTest[2][1] == handTest[3][1])
-				return 2;
+				return 1;
 			if (handTest[1][1] == handTest[2][1] && handTest[3][1] == handTest[4][1])
-				return 2;
+				return 1;
 			if (handTest[0][1] == handTest[1][1] && handTest[3][1] == handTest[4][1])
-				return 2;
+				return 1;
 		}
 		return 0;
 	}
@@ -150,44 +145,38 @@ int isPair(int** hand) {
 }
 int getHighestCard(int** hand) {
 	int index_of_HighestCard = hand[0][1];
-	return 0;
+	for (int i = 1; i < 5; i++)
+		if (hand[i][1] > index_of_HighestCard)
+			index_of_HighestCard = hand[i][1];
+	return index_of_HighestCard;
 }
 int getStatusOfHand(int** hand) {
 	return getHighestMark(hand);
 }
 int* evaluateHands(int* ranked_hands, int s) {
-	
+	return 0;
 	
 }
 ////////////////////////////////////////////////////////////////////////////////
 int getHighestMark(int** hand) {
-	if (isStraightFlush(hand) == 8)
+	if (isStraightFlush(hand) == 1)
 		return 8;
-	if (isFourOfAKind(hand) == 7)
+	if (isFourOfAKind(hand) == 1)
 		return 7;
-	if (isFullHouse(hand) == 6)
+	if (isFullHouse(hand) == 1)
 		return 6;
-	if (isFlush(hand) == 5)
+	if (isFlush(hand) == 1)
 		return 5;
-	if (isStraight(hand) == 4)
+	if (isStraight(hand) == 1)
 		return 4;
-	if (isThreeOfAKind(hand) == 3)
+	if (isThreeOfAKind(hand) == 1)
 		return 3;
-	if (isTwoPairs(hand) == 2)
+	if (isTwoPairs(hand) == 1)
 		return 2;
 	if (isPair(hand) == 1)
 		return 1;
 	return 0;
 }
-<<<<<<< HEAD
-=======
-int getStatusOfHand(int** hand) {
-	return getHighestCard(hand);
-}
-int* evaluateHands(int* ranked_hands, int s) {
-	return 0;
-	
-}
-////////////////////////////////////////////////////////////////////////////////
 
->>>>>>> 5aa28b609827fa4c84bacf204940486bc94b9a98
+
+

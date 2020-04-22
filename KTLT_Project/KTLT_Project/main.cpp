@@ -30,9 +30,6 @@ int main()
 	printMatrix(deck);
 	int*** test = dealingForHands(deck, 3);
 	rankingHands(test, 3);
-
-
-
 	system("pause");
 	return 0;
 }

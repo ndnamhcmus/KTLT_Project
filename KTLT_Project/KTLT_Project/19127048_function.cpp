@@ -148,7 +148,7 @@ int isFourOfAKind(int** hand)
 	////		SO SÁNH CÁC 4 LÁ BÀI LIỀN KỀ		////
 	if (checkFourOfAKind(hand))
 	{
-		return 7;
+		return 1;
 	}
 	else
 	{
@@ -160,7 +160,7 @@ int isFullHouse(int** hand)
 {
 	if (checkFullHouse(hand))
 	{
-		return 6;
+		return 1;
 	}
 	else
 	{
@@ -172,7 +172,7 @@ int isFlush(int** hand)
 {
 	if (checkFlush(hand))
 	{
-		return 5;
+		return 1;
 	}
 	else
 	{
@@ -184,7 +184,7 @@ int isStraight(int** hand)
 {
 	if (checkStraight(hand))
 	{
-		return 4;
+		return 1;
 	}
 	else
 	{
