@@ -6,13 +6,12 @@ using namespace std;
 
 #define SUITS 4
 #define RANKS 13
-#define FACES 13
 
 void shuffleCards(int deck[][RANKS]);
 
-int** dealingForHand(int deck[SUITS][FACES]);
+int** dealingForHand(int deck[SUITS][RANKS]);
 
-int** createHandTest(int a[]);
+int** createHandTest(int deck[SUITS][RANKS], int a[]);
 
 int isFourOfAKind(int** hand);
 
@@ -22,7 +21,7 @@ int isFlush(int** hand);
 
 int isStraight(int** hand);
 
-int*** dealingForHands(int deck[SUITS][FACES], int n);
+int*** dealingForHands(int deck[SUITS][RANKS], int n);
 
 int* rankingHands(int*** hands, int n);
 

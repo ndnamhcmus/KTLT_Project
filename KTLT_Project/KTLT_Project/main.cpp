@@ -15,10 +15,11 @@ int main()
 	printPointerMatrix(dealingForHand(deck), 5, 2);*/
 	
 
-	//int** hand;
-	//cout << "Player 1" << endl;
-	//hand = dealingForHand(deck);
-	//printHand(hand, suits, ranks);
+	/*printMatrix(deck);
+	int** hand;
+	cout << "Player 1" << endl;
+	hand = dealingForHand(deck);
+	printHand(hand, suits, ranks);*/
 
 
 	/*int array[5];
@@ -28,7 +29,10 @@ int main()
 
 	printMatrix(deck);
 	int*** test = dealingForHands(deck, 3);
-	DellocateTriplePointer(test, 3, 5);
+	rankingHands(test, 3);
+
+
+
 	system("pause");
 	return 0;
 }

@@ -27,7 +27,7 @@ void shuffleCards(int deck[][RANKS])
 	}
 }
 
-int** dealingForHand(int deck[SUITS][FACES])
+int** dealingForHand(int deck[SUITS][RANKS])
 {
 	////		CẤP PHÁT ĐỘNG		////
 	int** result = new int* [5];
@@ -37,16 +37,31 @@ int** dealingForHand(int deck[SUITS][FACES])
 	}
 
 
+	////		RANDOM CÁC LÁ BÀI TRÊN TAY		////
+	int handTest[5] = { 0 };
+	for (int i = 0; i < 5; i++)
+	{
+		handTest[i] = 1 + rand() % (52 + 1 - 1);
+		for (int j = 0; j < i; j++)		// kiểm tra các lá bài trên tay có bị trùng nhau không
+		{
+			while (handTest[i] == handTest[j])
+			{
+				handTest[i] = 1 + rand() % (52 + 1 - 1);
+			}
+		}
+	}
+	
+
 	bool is_found = false;
 	int IndexofResult = 0;
-	for (int card = 1; card <= 5; card++)
+	for (int IndexofhandTest = 0; IndexofhandTest < 5; IndexofhandTest++)
 	{
 		is_found = false;
 		for (int i = 0; i < SUITS; i++)
 		{
 			for (int j = 0; j < RANKS; j++)
 			{
-				if (deck[i][j] == card)
+				if (deck[i][j] == handTest[IndexofhandTest])
 				{
 					is_found = true;	//	dừng lại không quét qua các lá bài phía sau nếu đã tìm thấy
 
@@ -70,7 +85,7 @@ int** dealingForHand(int deck[SUITS][FACES])
 	return result;
 }
 
-int** createHandTest(int a[])
+int** createHandTest(int deck[SUITS][RANKS], int a[])
 {
 	////		CẤP PHÁT ĐỘNG DÙNG ĐỂ LƯU CÁC VỊ TRÍ TRONG BỘ BÀI		////
 	int** result = new int* [5];
@@ -81,9 +96,8 @@ int** createHandTest(int a[])
 
 
 	////		INPUT DECK		////
-	int deck[SUITS][RANKS] = { 0 };
 	shuffleCards(deck);
-	printMatrix(deck);
+	//printMatrix(deck);
 
 
 	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
@@ -178,7 +192,7 @@ int isStraight(int** hand)
 	}
 }
 
-int*** dealingForHands(int deck[SUITS][FACES], int n)
+int*** dealingForHands(int deck[SUITS][RANKS], int n)
 {
 	////		CẤP PHÁT ĐỘNG		////
 	////		CON TRỎ CẤP 3 LƯU CON TRỎ CẤP 2			////
@@ -267,6 +281,7 @@ int* rankingHands(int*** hands, int n)
 		}
 	}
 	delete[] ScoreofThePlayer;
+	ScoreofThePlayer = nullptr;
 
 
 	return RankofThePlayer;
