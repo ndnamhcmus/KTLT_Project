@@ -140,15 +140,3 @@ void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], cons
 	}
 }
 
-void MultiPlayer(int deck[SUITS][RANKS], int ChooseofMultiPlayer)
-{
-	switch (ChooseofMultiPlayer)
-	{
-
-	case 1:
-
-		/*dealingForHands(deck)*/
-	default:
-		break;
-	}
-}

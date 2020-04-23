@@ -17,6 +17,11 @@ int main()
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	//shuffleCards(deck);
+	//printCardsShuffling(deck, suits, ranks);
+	/*printMatrix(deck);
+	printPointerMatrix(dealingForHand(deck), 5, 2);*/
+	
 	shuffleCards(deck);
 
 	GameModeMenu();
@@ -91,15 +96,10 @@ int main()
 			}
 			break;
 
-			////		MULTIPLAYER MODE		////
 		case 2:
-
-			
-
-
 			break;
 
-			
+			////		MULTIPLAYER MODE		////
 
 
 
@@ -121,10 +121,18 @@ int main()
 	
 	
 
-	if (hand)
-	{
-		hand = DellocateDoublePointer(hand, 5);
-	}
+
+	/*printMatrix(deck);
+	int*** test = dealingForHands(deck, 5);
+	rankingHands(test, 5);*/
+
+	int* array;
+	array = evaluateHands(5, 1);
+	for (int i = 0; i < 5; i++)
+		cout << *(array + i) << endl;
+
+
+	DellocateDoublePointer(hand, 5);
 	system("pause");
 	return 0;
 }
