@@ -7,7 +7,7 @@ using namespace std;
 #define SUITS 4
 #define RANKS 13
 
-void shuffleCards(int deck[][RANKS]);
+void shuffleCards(int deck[SUITS][RANKS]);
 
 int** dealingForHand(int deck[SUITS][RANKS]);
 
@@ -39,7 +39,7 @@ void Multiplayer(int n, int s);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void printMatrix(int deck[][RANKS]);
+void printMatrix(int deck[SUITS][RANKS]);
 
 void printPointerMatrix(int** Matrix, int row, int column);
 

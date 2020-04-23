@@ -2,7 +2,7 @@
 #include "19127493.h"
 
 ////		PROTOTYPE		////
-void shuffleCards(int deck[][RANKS])
+void shuffleCards(int deck[SUITS][RANKS])
 {
 	int number = 1;
 	for (int i = 0; i < SUITS; i++)
@@ -28,7 +28,7 @@ void shuffleCards(int deck[][RANKS])
 	}
 }
 
-int** dealingForHand(int deck[][RANKS])
+int** dealingForHand(int deck[SUITS][RANKS])
 {
 	////		CẤP PHÁT ĐỘNG		////
 	int** result = new int* [5];
@@ -86,7 +86,7 @@ int** dealingForHand(int deck[][RANKS])
 	return result;
 }
 
-int** createHandTest(int deck[][RANKS], int a[])
+int** createHandTest(int deck[SUITS][RANKS], int a[])
 {
 	////		CẤP PHÁT ĐỘNG DÙNG ĐỂ LƯU CÁC VỊ TRÍ TRONG BỘ BÀI		////
 	int** result = new int* [5];
@@ -193,7 +193,7 @@ int isStraight(int** hand)
 	}
 }
 
-int*** dealingForHands(int deck[][RANKS], int n)
+int*** dealingForHands(int deck[SUITS][RANKS], int n)
 {
 	////		CẤP PHÁT ĐỘNG		////
 	////		CON TRỎ CẤP 3 LƯU CON TRỎ CẤP 2			////
@@ -293,7 +293,7 @@ int* rankingHands(int*** hands, int n)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void printMatrix(int deck[][RANKS])
+void printMatrix(int deck[SUITS][RANKS])
 {
 	for (int i = 0; i < SUITS; i++)
 	{
