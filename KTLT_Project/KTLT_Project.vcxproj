@@ -139,6 +139,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="19127048_function.cpp" />
+    <ClCompile Include="19127048_mode.cpp" />
+    <ClCompile Include="19127048_menu.cpp" />
     <ClCompile Include="19127493_function.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

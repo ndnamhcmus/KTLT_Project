@@ -6,12 +6,59 @@ using namespace std;
 
 #define SUITS 4
 #define RANKS 13
-#define FACES 13
 
-void shuffleCards(int deck[][RANKS]);
+void shuffleCards(int deck[SUITS][RANKS]);
 
-int** dealingForHand(int deck[SUITS][FACES]);
+int** dealingForHand(int deck[SUITS][RANKS]);
+
+int** createHandTest(int deck[SUITS][RANKS], int a[]);
+
+int isFourOfAKind(int** hand);
+
+int isFullHouse(int** hand);
+
+int isFlush(int** hand);
+
+int isStraight(int** hand);
+
+int*** dealingForHands(int deck[SUITS][RANKS], int n);
+
+int* rankingHands(int*** hands, int n);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void printMatrix(int deck[][RANKS]);
+////		MENU		////
+
+void GameModeMenu();
+
+void LevelofdifficultMenu();
+
+void SinglePlayerMenu();
+
+void MultiplayerMenu(int n, int s);
+
+////////////////////////////////////////////////////////////////////////////////
+
+////		main		////
+
+void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], const char* ranks[], int**& hand, int ChooseofSinglePlayer);
+
+////////////////////////////////////////////////////////////////////////////////
+
+void printMatrix(int deck[SUITS][RANKS]);
+
+void printPointerMatrix(int** Matrix, int row, int column);
+
+void print3DArray(int*** Array3D, int size, int row, int column);
+
+bool checkFourOfAKind(int** hand);
+
+bool checkFullHouse(int** hand);
+
+bool checkFlush(int** hand);
+
+bool checkStraight(int** hand);
+
+int** DellocateDoublePointer(int** Matrix, int Row);
+
+int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row);

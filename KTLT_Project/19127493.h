@@ -6,6 +6,22 @@
 
 using namespace std;
 
-void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* faces[]);
+void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* ranks[]);
 
-void printHand(int** hand,const char* suits[],const char* faces[]);
+void printHand(int** hand,const char* suits[],const char* ranks[]);
+
+int isStraightFlush(int** hand);
+
+int isThreeOfAKind(int** hand);
+
+int isTwoPairs(int** hand);
+
+int isPair(int** hand);
+
+int getHighestCard(int** hand);
+
+int getStatusOfHand(int** hand);
+
+////////////////////////////////////////////////////////////////////////////////
+
+int getHighestMark(int** hand);
