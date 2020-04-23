@@ -22,6 +22,8 @@ int getHighestCard(int** hand);
 
 int getStatusOfHand(int** hand);
 
+int* evaluateHands(int n, int s);
+
 ////////////////////////////////////////////////////////////////////////////////
 
 int getHighestMark(int** hand);

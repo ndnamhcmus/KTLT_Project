@@ -11,12 +11,22 @@ int main()
 
 	int ChooseofGameMode;
 	int ChooseofSinglePlayer;
+	int ChooseofMultiPlayer;
+
+
+	int NumberofPlayers;
+	int times;
 
 
 	int** hand = nullptr;
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	//shuffleCards(deck);
+	//printCardsShuffling(deck, suits, ranks);
+	/*printMatrix(deck);
+	printPointerMatrix(dealingForHand(deck), 5, 2);*/
+	
 	shuffleCards(deck);
 
 	GameModeMenu();
@@ -94,12 +104,70 @@ int main()
 			////		MULTIPLAYER MODE		////
 		case 2:
 
-			
+			system("cls");
+			cout << "How many players you want to play with: ";
+			cin >> NumberofPlayers;
+			do
+			{
+				if (NumberofPlayers < 0 || NumberofPlayers > 10)
+				{
+					system("cls");
+					cout << "Number of players must greater than 0 and smaller than 10, try again: ";
+					cin >> NumberofPlayers;
+				}
+			} while (NumberofPlayers < 0  || NumberofPlayers > 10);
 
 
+			MultiplayerMenu(NumberofPlayers);
+			cin >> ChooseofMultiPlayer;
+
+
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			do
+			{
+				if (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 13)
+				{
+					system("cls");
+					cout << "Something wrong, try again\n";
+					SinglePlayerMenu();
+					cin >> ChooseofMultiPlayer;
+				}
+			} while (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 13);
+
+
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			while (true)
+			{
+				if (ChooseofMultiPlayer == 1 || ChooseofMultiPlayer == 3 || ChooseofMultiPlayer == 13)
+				{
+					break;
+				}
+				else
+				{
+					system("cls");
+					cout << "Distribute cards to player before play\n";
+					SinglePlayerMenu();
+					cin >> ChooseofMultiPlayer;
+				}
+			}
+
+
+			////		OPTION		////
+			while (ChooseofMultiPlayer != 13)
+			{
+				SinglePlayer(deck, array, suits, ranks, hand, ChooseofSinglePlayer);
+
+
+				system("pause");
+				system("cls");
+
+
+				SinglePlayerMenu();
+				cin >> ChooseofMultiPlayer;
+			}
 			break;
 
-			
+			////		MULTIPLAYER MODE		////
 
 
 
@@ -121,10 +189,18 @@ int main()
 	
 	
 
-	if (hand)
-	{
-		hand = DellocateDoublePointer(hand, 5);
-	}
+
+	/*printMatrix(deck);
+	int*** test = dealingForHands(deck, 5);
+	rankingHands(test, 5);*/
+
+	int* array1;
+	array1 = evaluateHands(5, 1);
+	for (int i = 0; i < 5; i++)
+		cout << *(array + i) << endl;
+
+
+	DellocateDoublePointer(hand, 5);
 	system("pause");
 	return 0;
 }
