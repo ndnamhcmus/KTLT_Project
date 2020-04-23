@@ -1,14 +1,15 @@
 #include "19127048.h"
 
-void GameMode()
+void GameModeMenu()
 {
 	cout << "1. Single player\n";
 	cout << "2. Multiplayer\n";
 	cout << "3. Play with dealer\n";
+	cout << "4. Exit\n";
 	cout << "Choose: ";
 }
 
-void Levelofdifficult()
+void LevelofdifficultMenu()
 {
 	cout << "1. Easy\n";
 	cout << "2. Medium\n";
@@ -16,7 +17,7 @@ void Levelofdifficult()
 	cout << "Choose: ";
 }
 
-void SinglePlayer()
+void SinglePlayerMenu()
 {
 	cout << "1. Distribute random cards to player\n";
 	cout << "2. Prints out five cards assigned to a player\n";
@@ -30,10 +31,11 @@ void SinglePlayer()
 	cout << "10. Does a hand contain Two pairs?\n";
 	cout << "11. Does a hand contain Pair?\n";
 	cout << "12. The value of the highest card\n";
+	cout << "13. Exit\n";
 	cout << "Choose: ";
 }
 
-void Multiplayer(int n, int s)
+void MultiplayerMenu(int n, int s)
 {
 	cout << "1. Distributes cards to " << n << " players\n";
 	cout << "2. Ranks players in one turn\n";

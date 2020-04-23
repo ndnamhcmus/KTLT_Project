@@ -12,79 +12,112 @@ int main()
 	int ChooseofGameMode;
 	int ChooseofSinglePlayer;
 
+
+	int** hand = nullptr;
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	shuffleCards(deck);
 
-	//GameMode();
-	//cin >> ChooseofGameMode;
-	//do
-	//{
-	//	if (ChooseofGameMode < 1 || ChooseofGameMode > 3)
-	//	{
-	//		cout << "Something wrong, try again\n";
-	//		GameMode();
-	//		cin >> ChooseofGameMode;
-	//	}
-	//} while (ChooseofGameMode < 1 || ChooseofGameMode > 3);
+	GameModeMenu();
+	cin >> ChooseofGameMode;
+	do
+	{
+		if (ChooseofGameMode < 1 || ChooseofGameMode > 4)
+		{
+			cout << "Something wrong, try again\n";
+			GameModeMenu();
+			cin >> ChooseofGameMode;
+		}
+	} while (ChooseofGameMode < 1 || ChooseofGameMode > 4);
 
 
-	//switch (ChooseofGameMode)
-	//{
-	//case 1:		// single player
+	////		GAME MODE		////
+	while (ChooseofGameMode != 4)
+	{
+		switch (ChooseofGameMode)
+		{
 
-	//	SinglePlayer();
-	//	cin >> ChooseofSinglePlayer;
-	//	do
-	//	{
-	//		if (ChooseofSinglePlayer < 1 || ChooseofSinglePlayer > 12)
-	//		{
-	//			cout << "Something wrong, try again\n";
-	//			SinglePlayer();
-	//			cin >> ChooseofSinglePlayer;
-	//		}
-	//	} while (ChooseofSinglePlayer < 1 || ChooseofSinglePlayer > 12);
+			////		SINGLE PLAYER MODE			////
+		case 1:
+
+			system("cls");
+			SinglePlayerMenu();
+			cin >> ChooseofSinglePlayer;
 
 
-	//	switch (ChooseofSinglePlayer)
-	//	{
-	//	case 1:
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			do
+			{
+				if (ChooseofSinglePlayer < 1 || ChooseofSinglePlayer > 13)
+				{
+					system("cls");
+					cout << "Something wrong, try again\n";
+					SinglePlayerMenu();
+					cin >> ChooseofSinglePlayer;
+				}
+			} while (ChooseofSinglePlayer < 1 || ChooseofSinglePlayer > 13);
 
-	//		int** hand = dealingForHand(deck);
 
-	//		break;
-	//	case 2:
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			while (true)
+			{
+				if (ChooseofSinglePlayer == 1 || ChooseofSinglePlayer == 3 || ChooseofSinglePlayer == 13)
+				{
+					break;
+				}
+				else
+				{
+					system("cls");
+					cout << "Distribute cards to player before play\n";
+					SinglePlayerMenu();
+					cin >> ChooseofSinglePlayer;
+				}
+			}
 
-	//		printHand(hand, suits, ranks);
 
-	//		break;
-	//	case 3:
+			////		OPTION		////
+			while (ChooseofSinglePlayer != 13)
+			{
+				SinglePlayer(deck, array, suits, ranks, hand, ChooseofSinglePlayer);
 
-	//		hand = createHandTest(deck, array);
 
-	//		break;
-	//	case 4:
+				system("pause");
+				system("cls");
 
-	//		if (isFourOfAKind(hand))
-	//		{
-	//			cout << "Yes\n";
-	//		}
-	//		else
-	//		{
-	//			cout << "No\n";
-	//		}
 
-	//		break;
-	//	default:
-	//		break;
-	//	}
+				SinglePlayerMenu();
+				cin >> ChooseofSinglePlayer;
+			}
+			break;
 
-	//	break;
-	//default:
-	//	break;
-	//}
+		case 2:
+			break;
+
+			////		MULTIPLAYER MODE		////
+
+
+
+
+
+		}
+		
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+		system("pause");
+		system("cls");
+
+
+		GameModeMenu();
+		cin >> ChooseofGameMode;
+	}
+	
 	
 
+
+	DellocateDoublePointer(hand, 5);
 	system("pause");
 	return 0;
 }

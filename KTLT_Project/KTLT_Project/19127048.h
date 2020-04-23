@@ -29,13 +29,19 @@ int* rankingHands(int*** hands, int n);
 
 ////		MENU		////
 
-void GameMode();
+void GameModeMenu();
 
-void Levelofdifficult();
+void LevelofdifficultMenu();
 
-void SinglePlayer();
+void SinglePlayerMenu();
 
-void Multiplayer(int n, int s);
+void MultiplayerMenu(int n, int s);
+
+////////////////////////////////////////////////////////////////////////////////
+
+////		main		////
+
+void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], const char* ranks[], int**& hand, int ChooseofSinglePlayer);
 
 ////////////////////////////////////////////////////////////////////////////////
 
