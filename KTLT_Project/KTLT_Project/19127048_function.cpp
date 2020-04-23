@@ -261,7 +261,6 @@ int* rankingHands(int*** hands, int n)
 	int* RankofThePlayer = new int[n];
 	int* ScoreofThePlayer = new int[n];
 
-
 	for (int i = 0; i < n; i++)
 	{
 		ScoreofThePlayer[i] = getStatusOfHand(*(hands + i));
