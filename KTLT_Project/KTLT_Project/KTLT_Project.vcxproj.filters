@@ -27,7 +27,7 @@
     <ClCompile Include="19127048_menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="19127048_main.cpp">
+    <ClCompile Include="19127048_mode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
