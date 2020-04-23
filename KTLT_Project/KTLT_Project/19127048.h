@@ -7,7 +7,7 @@ using namespace std;
 #define SUITS 4
 #define RANKS 13
 
-void shuffleCards(int deck[][RANKS]);
+void shuffleCards(int deck[SUITS][RANKS]);
 
 int** dealingForHand(int deck[SUITS][RANKS]);
 
@@ -27,7 +27,25 @@ int* rankingHands(int*** hands, int n);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void printMatrix(int deck[][RANKS]);
+////		MENU		////
+
+void GameModeMenu();
+
+void LevelofdifficultMenu();
+
+void SinglePlayerMenu();
+
+void MultiplayerMenu(int n, int s);
+
+////////////////////////////////////////////////////////////////////////////////
+
+////		main		////
+
+void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], const char* ranks[], int**& hand, int ChooseofSinglePlayer);
+
+////////////////////////////////////////////////////////////////////////////////
+
+void printMatrix(int deck[SUITS][RANKS]);
 
 void printPointerMatrix(int** Matrix, int row, int column);
 

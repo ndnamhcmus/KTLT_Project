@@ -1,7 +1,8 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
-void shuffleCards(int deck[][RANKS])
+////		PROTOTYPE		////
+void shuffleCards(int deck[SUITS][RANKS])
 {
 	int number = 1;
 	for (int i = 0; i < SUITS; i++)
@@ -44,7 +45,7 @@ int** dealingForHand(int deck[SUITS][RANKS])
 		handTest[i] = 1 + rand() % (52 + 1 - 1);
 		for (int j = 0; j < i; j++)		// kiểm tra các lá bài trên tay có bị trùng nhau không
 		{
-			while (handTest[i] == handTest[j])
+			while (handTest[i] == handTest[j])	// trùng thì chạy vòng lặp đến khi hết trùng
 			{
 				handTest[i] = 1 + rand() % (52 + 1 - 1);
 			}
@@ -291,7 +292,7 @@ int* rankingHands(int*** hands, int n)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void printMatrix(int deck[][RANKS])
+void printMatrix(int deck[SUITS][RANKS])
 {
 	for (int i = 0; i < SUITS; i++)
 	{

@@ -3,9 +3,17 @@
 
 int main()
 {
+	int array[5] = { 0 };
 	int deck[SUITS][RANKS] = { 0 };
 	const char* suits[SUITS] = { "Hearts", "Diamonds", "Clubs", "Spades" };
 	const char* ranks[RANKS] = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
+
+
+	int ChooseofGameMode;
+	int ChooseofSinglePlayer;
+
+
+	int** hand = nullptr;
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -14,28 +22,117 @@ int main()
 	/*printMatrix(deck);
 	printPointerMatrix(dealingForHand(deck), 5, 2);*/
 	
+	shuffleCards(deck);
 
-	/*printMatrix(deck);
-	int** hand;
-	cout << "Player 1" << endl;
-	hand = dealingForHand(deck);
-	printHand(hand, suits, ranks);*/
+	GameModeMenu();
+	cin >> ChooseofGameMode;
+	do
+	{
+		if (ChooseofGameMode < 1 || ChooseofGameMode > 4)
+		{
+			cout << "Something wrong, try again\n";
+			GameModeMenu();
+			cin >> ChooseofGameMode;
+		}
+	} while (ChooseofGameMode < 1 || ChooseofGameMode > 4);
 
 
-	/*int array[5];
-	int** test = createHandTest(array);
-	cout << "Highest Card is: " << isStraight(test) << endl;*/
+	////		GAME MODE		////
+	while (ChooseofGameMode != 4)
+	{
+		switch (ChooseofGameMode)
+		{
+
+			////		SINGLE PLAYER MODE			////
+		case 1:
+
+			system("cls");
+			SinglePlayerMenu();
+			cin >> ChooseofSinglePlayer;
+
+
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			do
+			{
+				if (ChooseofSinglePlayer < 1 || ChooseofSinglePlayer > 13)
+				{
+					system("cls");
+					cout << "Something wrong, try again\n";
+					SinglePlayerMenu();
+					cin >> ChooseofSinglePlayer;
+				}
+			} while (ChooseofSinglePlayer < 1 || ChooseofSinglePlayer > 13);
+
+
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			while (true)
+			{
+				if (ChooseofSinglePlayer == 1 || ChooseofSinglePlayer == 3 || ChooseofSinglePlayer == 13)
+				{
+					break;
+				}
+				else
+				{
+					system("cls");
+					cout << "Distribute cards to player before play\n";
+					SinglePlayerMenu();
+					cin >> ChooseofSinglePlayer;
+				}
+			}
+
+
+			////		OPTION		////
+			while (ChooseofSinglePlayer != 13)
+			{
+				SinglePlayer(deck, array, suits, ranks, hand, ChooseofSinglePlayer);
+
+
+				system("pause");
+				system("cls");
+
+
+				SinglePlayerMenu();
+				cin >> ChooseofSinglePlayer;
+			}
+			break;
+
+		case 2:
+			break;
+
+			////		MULTIPLAYER MODE		////
+
+
+
+
+
+		}
+		
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+		system("pause");
+		system("cls");
+
+
+		GameModeMenu();
+		cin >> ChooseofGameMode;
+	}
+	
+	
 
 
 	/*printMatrix(deck);
 	int*** test = dealingForHands(deck, 5);
 	rankingHands(test, 5);*/
 
-	int *array;
+	int* array;
 	array = evaluateHands(5, 1);
 	for (int i = 0; i < 5; i++)
 		cout << *(array + i) << endl;
 
+
+	DellocateDoublePointer(hand, 5);
 	system("pause");
 	return 0;
 }
