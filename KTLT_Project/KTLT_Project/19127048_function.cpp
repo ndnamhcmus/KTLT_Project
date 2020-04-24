@@ -95,6 +95,7 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 		*(result + i) = new int[2];
 	}
 
+
 	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
 	for (int i = 0; i < 5; i++)
 	{
@@ -426,7 +427,7 @@ bool checkFullHouse(int** hand)
 	}
 
 
-	if ((checkcountArray[0] == 3 && checkcountArray[1] == 2) || (checkcountArray[0] == 2 || checkcountArray[1] == 3))
+	if ((checkcountArray[0] == 3 && checkcountArray[1] == 2) || (checkcountArray[0] == 2 && checkcountArray[1] == 3))
 	{
 		return true;
 	}

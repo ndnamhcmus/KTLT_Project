@@ -4,7 +4,6 @@
 void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], const char* ranks[], int**& hand, int ChooseofSinglePlayer)
 {
 
-
 	switch (ChooseofSinglePlayer)
 	{
 
@@ -130,12 +129,12 @@ void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], cons
 	}
 }
 
-void MultiPlayer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofMultiPlayer)
+void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, int ChooseofMultiPlayer)
 {
-
-	int* rank = nullptr;
 	int player;
 	int times;
+
+
 	switch (ChooseofMultiPlayer)
 	{
 
@@ -152,12 +151,12 @@ void MultiPlayer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofMulti
 		{
 			if (player < 0 || player >= n)
 			{
-				cout << "Something wrong, player is from 0 to " << n - 1 << " try again: ";
+				cout << "Something wrong, player is from 0 to " << n - 1 << ", try again: ";
 				cin >> player;
 			}
 			
 		} while (player < 0 || player >= n);
-		getStatusOfHand(*(hands) + player);
+		cout << getStatusOfHand(*(hands + player)) << endl;
 		break;
 
 	case 3:
@@ -183,21 +182,20 @@ void MultiPlayer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofMulti
 		
 
 		cout << "Rank:\t";
-		for (int j = 1; j <= n; j++)
+		for (int i = 1; i <= n; i++)
 		{
-			cout << j << "\t";
+			cout << i << "\t";
 		}
 		cout << "\nPlayer:\t";
-		for (int j = 0; j < n; j++)
+		for (int i = 0; i < n; i++)
 		{
-			cout << rank[j] << "\t";
+			cout << rank[i] << "\t";
 		}
 		break;
 	default:
-		cout << "Something wrong, try again:\n";
+		cout << "Something wrong, try again: ";
 		break;
 	}
 
 
-	delete[] rank;
 }
