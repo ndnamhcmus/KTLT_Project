@@ -95,20 +95,12 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 		*(result + i) = new int[2];
 	}
 
-
-	////		INPUT DECK		////
-	shuffleCards(deck);
-	//printMatrix(deck);
-
-
 	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
 	for (int i = 0; i < 5; i++)
 	{
 		cout << "Enter your card number: ";
 		cin >> a[i];
 	}
-
-
 
 	////		TÌM CÁC LÁ BÀI TRONG MA TRẬN DECK		////
 	bool is_found = false;

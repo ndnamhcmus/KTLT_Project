@@ -13,7 +13,6 @@ int main()
 	int ChooseofSinglePlayer;
 	int ChooseofMultiPlayer;
 
-
 	int NumberofPlayers;
 	int times;
 
@@ -26,7 +25,6 @@ int main()
 	//printCardsShuffling(deck, suits, ranks);
 	/*printMatrix(deck);
 	printPointerMatrix(dealingForHand(deck), 5, 2);*/
-	
 	shuffleCards(deck);
 
 	GameModeMenu();
@@ -177,6 +175,9 @@ int main()
 		
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+
+
 
 
 		system("pause");
@@ -187,19 +188,8 @@ int main()
 		cin >> ChooseofGameMode;
 	}
 	
-	
 
 
-	/*printMatrix(deck);
-	int*** test = dealingForHands(deck, 5);
-	rankingHands(test, 5);*/
-
-	int *test;
-	test = evaluateHands(5, 1);
-	int* array1;
-	array1 = evaluateHands(5, 1);
-	for (int i = 0; i < 5; i++)
-		cout << *(array1 + i) << endl;
 
 	DellocateDoublePointer(hand, 5);
 	system("pause");
