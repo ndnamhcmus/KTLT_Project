@@ -195,10 +195,13 @@ int main()
 	int*** test = dealingForHands(deck, 5);
 	rankingHands(test, 5);*/
 
-	/*int* array1;
+
+	int *test;
+	test = evaluateHands(5, 1);
+	int* array1;
 	array1 = evaluateHands(5, 1);
 	for (int i = 0; i < 5; i++)
-		cout << *(array + i) << endl;*/
+		cout << *(array1 + i) << endl;
 
 
 	if (rank)
