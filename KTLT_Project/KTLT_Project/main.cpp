@@ -201,19 +201,6 @@ int main()
 
 
 
-	/*printMatrix(deck);
-	int*** test = dealingForHands(deck, 5);
-	rankingHands(test, 5);*/
-
-
-	int *test;
-	test = evaluateHands(5, 1);
-	int* array1;
-	array1 = evaluateHands(5, 1);
-	for (int i = 0; i < 5; i++)
-		cout << *(array1 + i) << endl;
-
-
 	if (rank)
 	{
 		delete[] rank;
