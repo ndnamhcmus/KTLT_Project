@@ -35,7 +35,7 @@ void LevelofdifficultMenu();
 
 void SinglePlayerMenu();
 
-void MultiplayerMenu(int n, int s);
+void MultiplayerMenu(int n);
 
 ////////////////////////////////////////////////////////////////////////////////
 

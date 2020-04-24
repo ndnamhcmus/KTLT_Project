@@ -157,6 +157,7 @@ int* evaluateHands(int n, int s) {
 	int* ScoreofThePlayer = new int[n];
 	for (int i = 0; i < n; i++)
 		ScoreofThePlayer[i] = 0;
+	///         Tính điểm của n người chơi sau khi chơi s lần		////
 	for (int time = 1; time <= s; time++) {
 		int deck[SUITS][RANKS] = { 0 };
 		shuffleCards(deck);
@@ -183,28 +184,6 @@ int* evaluateHands(int n, int s) {
 		}
 	}
 
-	/*int* ScoreofThePlayerTest = new int[n];
-	for (int i = 0; i < n; i++)
-		ScoreofThePlayerTest[i] = ScoreofThePlayer[i];
-
-	////		SORT SCORETEST		////
-	for (int i = 0; i < n - 1; i++)
-		for (int j = i + 1; j < n; j++)
-			if (ScoreofThePlayerTest[i] < ScoreofThePlayerTest[j])
-				swap(ScoreofThePlayerTest[i], ScoreofThePlayerTest[j]);
-	
-	int* RankofThePlayer = new int[n];
-	int k = 1;
-	                                                         
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++)
-			if (ScoreofThePlayerTest[i] == ScoreofThePlayer[j])
-				RankofThePlayer[j] = k;
-		k++;
-		while (ScoreofThePlayerTest[i] == ScoreofThePlayerTest[i + 1] && i < n - 1)
-			i++;
-	}
-	*/
 	delete[] ScoreofThePlayer;
 	ScoreofThePlayer = nullptr;
 

@@ -35,11 +35,13 @@ void SinglePlayerMenu()
 	cout << "Choose: ";
 }
 
-void MultiplayerMenu(int n, int s)
+void MultiplayerMenu(int n)
 {
 	cout << "1. Distributes cards to " << n << " players\n";
-	cout << "2. Ranks players in one turn\n";
-	cout << "3. Play " << s << " times and find the winner\n";
+	cout << "2. The hand-ranking of five cards\n";
+	cout << "3. Ranks players in one turn\n";
+	cout << "4. Play [times] and find the winner\n";
+	cout << "5. Exit\n";
 	cout << "Choose: ";
 }
 
