@@ -126,13 +126,12 @@ int main()
 	int*** test = dealingForHands(deck, 5);
 	rankingHands(test, 5);*/
 
-	int* array;
+	/*int *array;
 	array = evaluateHands(5, 1);
 	for (int i = 0; i < 5; i++)
 		cout << *(array + i) << endl;
 
-
-	DellocateDoublePointer(hand, 5);
+	DellocateDoublePointer(hand, 5);*/
 	system("pause");
 	return 0;
 }

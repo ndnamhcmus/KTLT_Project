@@ -1,7 +1,7 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
-void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* rank[]) {
+void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* ranks[]) {
 	
 	int key = 1;
 	int time = 0;
@@ -9,13 +9,13 @@ void printCardsShuffling(int deck[][RANKS], const char* suits[], const char* ran
 		for (int i = 0; i < SUITS; i++)
 			for (int j = 0; j < RANKS; j++)
 				if (deck[i][j] == key) {
-					cout << "(" << suits[i] << ", " << rank[j] << ")" << endl;
+					cout << "(" << suits[i] << ", " << ranks[j] << ")" << endl;
 					key++;
 				}
 }
-void printHand(int** hand, const char* suits[], const char* rank[]) {
+void printHand(int** hand, const char* suits[], const char* ranks[]) {
 	for (int i = 0; i < 5; i++)
-		cout << "(" << suits[hand[i][0]] << ", " << rank[hand[i][1]] << ")" << endl;
+		cout << "(" << suits[hand[i][0]] << ", " << ranks[hand[i][1]] << ")" << endl;
 }
 
 int isStraightFlush(int** hand) {
@@ -160,13 +160,30 @@ int* evaluateHands(int n, int s) {
 	for (int time = 1; time <= s; time++) {
 		int deck[SUITS][RANKS] = { 0 };
 		shuffleCards(deck);
+		printMatrix(deck);
 		int*** test = dealingForHands(deck, n);
 		print3DArray(test, n, 5, 2);
 		for (int i = 0; i < n; i++)
 			ScoreofThePlayer[i] = ScoreofThePlayer[i] + getStatusOfHand(*(test + i));
 	}
 
-	int* ScoreofThePlayerTest = new int[n];
+	int* RankofThePlayer = new int[n];
+	for (int i = 0; i < n; i++)
+		RankofThePlayer[i] = i + 1;
+
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (ScoreofThePlayer[i] < ScoreofThePlayer[j])
+			{
+				swap(ScoreofThePlayer[i], ScoreofThePlayer[j]);
+				swap(RankofThePlayer[i], RankofThePlayer[j]);
+			}
+		}
+	}
+
+	/*int* ScoreofThePlayerTest = new int[n];
 	for (int i = 0; i < n; i++)
 		ScoreofThePlayerTest[i] = ScoreofThePlayer[i];
 
@@ -187,11 +204,9 @@ int* evaluateHands(int n, int s) {
 		while (ScoreofThePlayerTest[i] == ScoreofThePlayerTest[i + 1] && i < n - 1)
 			i++;
 	}
-
-	/*delete[] ScoreofThePlayer;
+	*/
+	delete[] ScoreofThePlayer;
 	ScoreofThePlayer = nullptr;
-	delete[] ScoreofThePlayerTest;
-	ScoreofThePlayerTest = nullptr;*/
 
 	return RankofThePlayer;
 }
