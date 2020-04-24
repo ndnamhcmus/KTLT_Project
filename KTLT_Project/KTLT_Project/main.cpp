@@ -168,11 +168,6 @@ int main()
 			}
 			break;
 
-			////		MULTIPLAYER MODE		////
-
-
-
-
 
 		}
 		
