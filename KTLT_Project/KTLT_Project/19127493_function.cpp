@@ -154,11 +154,16 @@ int getStatusOfHand(int** hand) {
 	return getHighestMark(hand);
 }
 int* evaluateHands(int n, int s) {
+
+///         Khởi tạo mảng lưu điểm của người chơi		////
+	
 	int* ScoreofThePlayer = new int[n];
 	for (int i = 0; i < n; i++)
 		ScoreofThePlayer[i] = 0;
-	///         Tính điểm của n người chơi sau khi chơi s lần		////
-	for (int time = 1; time <= s; time++) {
+
+///         Tính điểm của n người chơi sau khi chơi s lần		////
+	
+for (int time = 1; time <= s; time++) {
 		int deck[SUITS][RANKS] = { 0 };
 		shuffleCards(deck);
 		printMatrix(deck);
@@ -171,6 +176,8 @@ int* evaluateHands(int n, int s) {
 	int* RankofThePlayer = new int[n];
 	for (int i = 0; i < n; i++)
 		RankofThePlayer[i] = i + 1;
+
+///         Xếp hạng cho người chơi		////
 
 	for (int i = 0; i < n - 1; i++)
 	{
