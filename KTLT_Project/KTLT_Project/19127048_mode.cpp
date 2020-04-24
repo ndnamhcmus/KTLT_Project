@@ -18,7 +18,7 @@ void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], cons
 		break;
 
 	case 3:
-		printMatrix(deck);
+
 		hand = createHandTest(deck, array);
 		break;
 
@@ -120,7 +120,7 @@ void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], cons
 
 	case 12:
 
-		cout << " The value of the highest card: " << ranks[getHighestCard(hand)] << endl;
+		cout << "The value of the highest card: " << ranks[getHighestCard(hand)] << endl;
 		break;
 
 	default:

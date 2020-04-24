@@ -101,6 +101,18 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 	{
 		cout << "Enter your card number: ";
 		cin >> a[i];
+		for (int j = 0; j < i; j++)		// kiểm tra các lá bài trên tay có bị trùng nhau không
+		{
+			do
+			{
+				if (a[i] == a[j])
+				{
+					cout << "Please choose another one: ";
+					cin >> a[i];
+				}
+
+			} while (a[i] == a[j]);
+		}
 	}
 
 	////		TÌM CÁC LÁ BÀI TRONG MA TRẬN DECK		////

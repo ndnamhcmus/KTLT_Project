@@ -16,7 +16,6 @@ int main()
 
 
 	////		FOR MULTIPLAYER		////
-
 	int NumberofPlayers;
 	int times;
 
