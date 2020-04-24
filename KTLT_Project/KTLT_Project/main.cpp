@@ -9,26 +9,27 @@ int main()
 	const char* ranks[RANKS] = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
 
 
+	////		FOR MENU		////
 	int ChooseofGameMode;
 	int ChooseofSinglePlayer;
 	int ChooseofMultiPlayer;
 
 
+	////		FOR MULTIPLAYER		////
 	int NumberofPlayers;
 	int times;
 
 
+	////		POINTER		////
+	int* rank = nullptr;
 	int** hand = nullptr;
+	int*** hands = nullptr;
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//shuffleCards(deck);
-	//printCardsShuffling(deck, suits, ranks);
-	/*printMatrix(deck);
-	printPointerMatrix(dealingForHand(deck), 5, 2);*/
 	
 	shuffleCards(deck);
-
+	
 	GameModeMenu();
 	cin >> ChooseofGameMode;
 	do
@@ -109,13 +110,13 @@ int main()
 			cin >> NumberofPlayers;
 			do
 			{
-				if (NumberofPlayers < 0 || NumberofPlayers > 10)
+				if (NumberofPlayers < 2 || NumberofPlayers > 10)
 				{
 					system("cls");
-					cout << "Number of players must greater than 0 and smaller than 10, try again: ";
+					cout << "Number of players must greater than 2 and smaller than 10, try again: ";
 					cin >> NumberofPlayers;
 				}
-			} while (NumberofPlayers < 0  || NumberofPlayers > 10);
+			} while (NumberofPlayers < 2  || NumberofPlayers > 10);
 
 
 			MultiplayerMenu(NumberofPlayers);
@@ -125,14 +126,14 @@ int main()
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			do
 			{
-				if (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 13)
+				if (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 5)
 				{
 					system("cls");
 					cout << "Something wrong, try again\n";
-					SinglePlayerMenu();
+					MultiplayerMenu(NumberofPlayers);
 					cin >> ChooseofMultiPlayer;
 				}
-			} while (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 13);
+			} while (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 5);
 
 
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
@@ -146,23 +147,23 @@ int main()
 				{
 					system("cls");
 					cout << "Distribute cards to player before play\n";
-					SinglePlayerMenu();
+					MultiplayerMenu(NumberofPlayers);
 					cin >> ChooseofMultiPlayer;
 				}
 			}
 
 
 			////		OPTION		////
-			while (ChooseofMultiPlayer != 13)
+			while (ChooseofMultiPlayer != 5)
 			{
-				SinglePlayer(deck, array, suits, ranks, hand, ChooseofSinglePlayer);
+				MultiPlayer(deck, rank, hands, NumberofPlayers, ChooseofMultiPlayer);
 
 
 				system("pause");
 				system("cls");
 
 
-				SinglePlayerMenu();
+				MultiplayerMenu(NumberofPlayers);
 				cin >> ChooseofMultiPlayer;
 			}
 			break;
@@ -194,13 +195,20 @@ int main()
 	int*** test = dealingForHands(deck, 5);
 	rankingHands(test, 5);*/
 
-	int* array1;
+	/*int* array1;
 	array1 = evaluateHands(5, 1);
 	for (int i = 0; i < 5; i++)
-		cout << *(array + i) << endl;
+		cout << *(array + i) << endl;*/
 
 
-	DellocateDoublePointer(hand, 5);
+	if (rank)
+	{
+		delete[] rank;
+	}
+	if (hand)
+	{
+		DellocateDoublePointer(hand, 5);
+	}
 	system("pause");
 	return 0;
 }
