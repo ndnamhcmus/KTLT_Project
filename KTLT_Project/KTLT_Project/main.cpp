@@ -145,7 +145,7 @@ int main()
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			while (true)
 			{
-				if (ChooseofMultiPlayer == 1 || ChooseofMultiPlayer == 3 || ChooseofMultiPlayer == 13)
+				if (ChooseofMultiPlayer == 1 || ChooseofMultiPlayer == 5)
 				{
 					break;
 				}
