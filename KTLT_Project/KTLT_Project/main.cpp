@@ -26,16 +26,8 @@ int main()
 	int*** hands = nullptr;
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//shuffleCards(deck);
-	//printCardsShuffling(deck, suits, ranks);
-	/*printMatrix(deck);
-	printPointerMatrix(dealingForHand(deck), 5, 2);*/
-
 	
 
-	shuffleCards(deck);
-	
 	GameModeMenu();
 	cin >> ChooseofGameMode;
 	do

@@ -176,7 +176,7 @@ int isFullHouse(int** hand)
 
 int isFlush(int** hand)
 {
-	if (checkFlush(hand))
+	if (checkFlush(hand) && !checkStraight(hand))
 	{
 		return 1;
 	}
@@ -188,7 +188,7 @@ int isFlush(int** hand)
 
 int isStraight(int** hand)
 {
-	if (checkStraight(hand))
+	if (checkStraight(hand) && !checkFlush(hand))
 	{
 		return 1;
 	}
