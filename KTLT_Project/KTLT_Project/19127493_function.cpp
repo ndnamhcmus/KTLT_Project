@@ -171,6 +171,7 @@ for (int time = 1; time <= s; time++) {
 		print3DArray(test, n, 5, 2);
 		for (int i = 0; i < n; i++)
 			ScoreofThePlayer[i] = ScoreofThePlayer[i] + getStatusOfHand(*(test + i));
+		system("pause");
 	}
 
 	int* RankofThePlayer = new int[n];
