@@ -200,6 +200,10 @@ int main()
 	{
 		DellocateDoublePointer(hand, 5);
 	}
+	if (hands)
+	{
+		DellocateTriplePointer(hands, NumberofPlayers, 5);
+	}
 	system("pause");
 	return 0;
 }
