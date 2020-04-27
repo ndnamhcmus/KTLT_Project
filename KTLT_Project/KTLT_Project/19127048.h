@@ -43,7 +43,7 @@ void MultiplayerMenu(int n);
 
 void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], const char* ranks[], int**& hand, int ChooseofSinglePlayer);
 
-void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, int ChooseofMultiPlayer);
+void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, const char* suits[], const char* ranks[], int ChooseofMultiPlayer);
 
 ////////////////////////////////////////////////////////////////////////////////
 

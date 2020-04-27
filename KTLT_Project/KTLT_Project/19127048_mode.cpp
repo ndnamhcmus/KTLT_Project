@@ -1,4 +1,4 @@
-#include "19127048.h"
+﻿#include "19127048.h"
 #include "19127493.h"
 
 void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], const char* ranks[], int**& hand, int ChooseofSinglePlayer)
@@ -129,7 +129,7 @@ void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], cons
 	}
 }
 
-void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, int ChooseofMultiPlayer)
+void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, const char* suits[], const char* ranks[], int ChooseofMultiPlayer)
 {
 	int player;
 	int times;
@@ -141,11 +141,16 @@ void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, int C
 	case 1:
 
 		hands = dealingForHands(deck, n);
+		////		In các là bài của từng người chơi		////
+		for (int i = 0; i < n; i++) {
+			cout << "Player " << i << "'s card is: " << endl;
+			printHand(*(hands + i), suits, ranks);
+		}
 		break;
 
 	case 2:
 
-		cout << "Which player you want to check: ";
+		cout << "Which player you want to check score: ";
 		cin >> player;
 		do
 		{

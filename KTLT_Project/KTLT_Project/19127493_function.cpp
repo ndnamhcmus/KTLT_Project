@@ -44,14 +44,7 @@ int isThreeOfAKind(int** hand) {
 		}
 	}
 	///         Check Three of a kind		////
-	int count = 0;
-	for (int i = 0; i < 5 - 1; i++)
-	{
-		if (handTest[i][1] == handTest[i + 1][1])
-		{
-			count++;
-		}
-	}
+	
 	int count1 = 0;
 	for (int i = 0; i < 5 - 1; i++)
 	{
@@ -60,7 +53,7 @@ int isThreeOfAKind(int** hand) {
 			count1++;
 		}
 	}
-	if (count == 2 && count1 == 2)
+	if (isTwoPairs(hand) == 0 && count1 == 2)
 		return 1;
 	else
 		return 0;
@@ -161,10 +154,11 @@ int* evaluateHands(int n, int s) {
 	for (int i = 0; i < n; i++)
 		ScoreofThePlayer[i] = 0;
 
+	int deck[SUITS][RANKS] = { 0 };
+
 ///         Tính điểm của n người chơi sau khi chơi s lần		////
 	
 for (int time = 1; time <= s; time++) {
-		int deck[SUITS][RANKS] = { 0 };
 		shuffleCards(deck);
 		printMatrix(deck);
 		int*** test = dealingForHands(deck, n);

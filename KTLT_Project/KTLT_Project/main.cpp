@@ -25,6 +25,13 @@ int main()
 	int* rank = nullptr;
 	int** hand = nullptr;
 	int*** hands = nullptr;
+	
+	/*int *a;
+	a = new int[3];
+	a = evaluateHands(3, 3);
+	for (int i = 0; i < 3; i++)
+		cout << a[i] << endl;*/
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -163,7 +170,7 @@ int main()
 			////		OPTION		////
 			while (ChooseofMultiPlayer != 5)
 			{
-				MultiPlayer(deck, rank, hands, NumberofPlayers, ChooseofMultiPlayer);
+				MultiPlayer(deck, rank, hands, NumberofPlayers, suits, ranks, ChooseofMultiPlayer);
 
 
 				system("pause");
