@@ -106,6 +106,8 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 				dealer[slect_random_card[i]][1] = draw_card[i][1];
 			}
 
+			*(hands + n - 1) = dealer;
+
 			cout << "Dealer's card is: " << endl;
 			printHand(dealer, suits, ranks);
 			break;
@@ -144,6 +146,8 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 				dealer[slect_card][0] = draw_card1[0];
 				dealer[slect_card][1] = draw_card1[1];
 			}
+
+			*(hands + n - 1) = dealer;
 
 			cout << "Dealer's card is: " << endl;
 			printHand(dealer, suits, ranks);
