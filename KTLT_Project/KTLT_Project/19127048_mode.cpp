@@ -198,10 +198,9 @@ void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, const
 		}
 		cout << endl;
 		break;
+
 	default:
 		cout << "Something wrong, try again: ";
 		break;
 	}
-
-
 }

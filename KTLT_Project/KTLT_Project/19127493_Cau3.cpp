@@ -51,7 +51,7 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 		cout << "Dealer's score is " << getStatusOfHand(*(hands + n - 1)) << endl;
 		break;
 
-	case 3:	////		Bốc và thay thế ngẫu bài của dealer 		////
+	case 3:	////		Bốc và thay thế bài của dealer 		////
 		
 		int option;
 		do {
@@ -169,24 +169,6 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 		}
 		break;
 
-	case 5:
-
-		cout << "How many times you want to play: ";
-		cin >> times;
-		rank = evaluateHands(n, times);
-
-
-		cout << "Rank:\t";
-		for (int j = 1; j <= n; j++)
-		{
-			cout << j << "\t";
-		}
-		cout << "\nPlayer:\t";
-		for (int j = 0; j < n; j++)
-		{
-			cout << rank[j] << "\t";
-		}
-		break;
 	default:
 		cout << "Something wrong, try again:\n";
 		break;

@@ -158,7 +158,7 @@ int* evaluateHands(int n, int s) {
 
 ///         Tính điểm của n người chơi sau khi chơi s lần		////
 	
-for (int time = 1; time <= s; time++) {
+	for (int time = 1; time <= s; time++) {
 		shuffleCards(deck);
 		printMatrix(deck);
 		int*** test = dealingForHands(deck, n);
