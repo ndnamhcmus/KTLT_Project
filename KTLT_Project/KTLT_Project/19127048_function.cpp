@@ -15,6 +15,7 @@ void shuffleCards(int deck[SUITS][RANKS])
 	}
 	
 
+	srand(time(NULL));
 	for (int i = 0; i < SUITS * RANKS; i++)
 	{
 		int pos1 = 0 + rand() % (3 + 1 - 0);
