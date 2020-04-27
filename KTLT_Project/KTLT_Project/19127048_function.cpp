@@ -15,7 +15,6 @@ void shuffleCards(int deck[SUITS][RANKS])
 	}
 	
 
-	srand(time(NULL));
 	for (int i = 0; i < SUITS * RANKS; i++)
 	{
 		int pos1 = 0 + rand() % (3 + 1 - 0);
@@ -101,6 +100,18 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 	{
 		cout << "Enter your card number: ";
 		cin >> a[i];
+		for (int j = 0; j < i; j++)		// kiểm tra các lá bài trên tay có bị trùng nhau không
+		{
+			do
+			{
+				if (a[i] == a[j])
+				{
+					cout << "Please choose another one: ";
+					cin >> a[i];
+				}
+
+			} while (a[i] == a[j]);
+		}
 	}
 
 	////		TÌM CÁC LÁ BÀI TRONG MA TRẬN DECK		////
@@ -164,7 +175,7 @@ int isFullHouse(int** hand)
 
 int isFlush(int** hand)
 {
-	if (checkFlush(hand))
+	if (checkFlush(hand) && !checkStraight(hand))
 	{
 		return 1;
 	}
@@ -176,7 +187,7 @@ int isFlush(int** hand)
 
 int isStraight(int** hand)
 {
-	if (checkStraight(hand))
+	if (checkStraight(hand) && !checkFlush(hand))
 	{
 		return 1;
 	}

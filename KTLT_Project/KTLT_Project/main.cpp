@@ -16,7 +16,6 @@ int main()
 
 
 	////		FOR MULTIPLAYER		////
-
 	int NumberofPlayers;
 	int times;
 
@@ -34,16 +33,13 @@ int main()
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//shuffleCards(deck);
-	//printCardsShuffling(deck, suits, ranks);
-	/*printMatrix(deck);
-	printPointerMatrix(dealingForHand(deck), 5, 2);*/
-
 	
 
-	shuffleCards(deck);
-	
+	srand(time(NULL));
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	GameModeMenu();
 	cin >> ChooseofGameMode;
 	do
@@ -153,7 +149,7 @@ int main()
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			while (true)
 			{
-				if (ChooseofMultiPlayer == 1 || ChooseofMultiPlayer == 3 || ChooseofMultiPlayer == 13)
+				if (ChooseofMultiPlayer == 1 || ChooseofMultiPlayer == 5)
 				{
 					break;
 				}
@@ -181,11 +177,6 @@ int main()
 				cin >> ChooseofMultiPlayer;
 			}
 			break;
-
-			////		MULTIPLAYER MODE		////
-
-
-
 
 
 		}
@@ -215,6 +206,10 @@ int main()
 	if (hand)
 	{
 		DellocateDoublePointer(hand, 5);
+	}
+	if (hands)
+	{
+		DellocateTriplePointer(hands, NumberofPlayers, 5);
 	}
 	system("pause");
 	return 0;
