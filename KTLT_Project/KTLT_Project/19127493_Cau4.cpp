@@ -3,7 +3,7 @@
 
 const int n = 2;
 
-void Poker_Game(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofMultiPlayer, const char* suits[], const char* ranks[]) {
+void Poker_Game(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofPokerGame, const char* suits[], const char* ranks[]) {
 
 	////		CẤP PHÁT ĐỘNG		////
 	int** dealer = new int* [5];
@@ -33,7 +33,7 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofMultiP
 	int times;
 	int card;
 
-	switch (ChooseofMultiPlayer)
+	switch (ChooseofPokerGame)
 	{
 
 	case 1:
