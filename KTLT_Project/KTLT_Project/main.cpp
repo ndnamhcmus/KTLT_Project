@@ -112,6 +112,10 @@ int main()
 				system("cls");
 
 
+				cout << "Card on hand:\n";
+				printHand(hand, suits, ranks);
+
+
 				SinglePlayerMenu();
 				cin >> ChooseofSinglePlayer;
 			}
@@ -180,14 +184,14 @@ int main()
 				system("cls");
 
 
-				if (hands)
-				{
-					////		In các là bài của từng người chơi		////
-					for (int i = 0; i < NumberofPlayers; i++) {
-						cout << "Player " << i << "'s card is: " << endl;
-						printHand(*(hands + i), suits, ranks);
-					}
+				
+				////		In các là bài của từng người chơi		////
+				for (int i = 0; i < NumberofPlayers; i++) {
+					cout << "Player " << i << "'s card is: " << endl;
+					printHand(*(hands + i), suits, ranks);
 				}
+
+				
 				MultiplayerMenu(NumberofPlayers);
 				cin >> ChooseofMultiPlayer;
 			}
@@ -254,6 +258,9 @@ int main()
 			////		LEVEL		////
 		case 4:
 
+			NumberofPlayers = 2;	//	dùng để xóa con trỏ cấp 3 hands
+
+
 			system("cls");
 			LevelofdifficultMenu();
 			cin >> ChooseofLevel;
@@ -272,11 +279,14 @@ int main()
 			} while (ChooseofLevel < 1 || ChooseofLevel > 3);
 
 
+			////		CHỌN MỨC ĐỘ KHÓ			////
 			while (ChooseofLevel != 4)
 			{
 				switch (ChooseofLevel)	// chọn mức độ
 				{
-				case 1:		// mức dễ
+					////		EASY		////
+				case 1:
+					system("cls");
 					cout << "Easy\n";
 
 
@@ -285,12 +295,25 @@ int main()
 					isChooseValid(Choose);
 
 
-					Easy_Game(deck, hands, Choose, suits, ranks);
-					
+					while (Choose != 4)
+					{
+						Easy_Game(deck, hands, Choose, suits, ranks);
+
+
+						system("pause");
+						system("cls");
+
+
+						DealervsPlayerMenu();
+						cin >> Choose;
+					}
+
 
 					break;
 
+					////		MEDIUM		////
 				case 2:
+					system("cls");
 					cout << "Medium\n";
 
 
@@ -299,12 +322,25 @@ int main()
 					isChooseValid(Choose);
 
 
-					Medium_Game(deck, hands, Choose, suits, ranks);
+					while (Choose != 4)
+					{
+						Medium_Game(deck, hands, Choose, suits, ranks);
+
+
+						system("pause");
+						system("cls");
+
+
+						DealervsPlayerMenu();
+						cin >> Choose;
+					}
 
 
 					break;
 
+					////		HARD		////
 				case 3:
+					system("cls");
 					cout << "Hard\n";
 
 
@@ -313,12 +349,25 @@ int main()
 					isChooseValid(Choose);
 
 
-					Hard_Game(deck, hands, Choose, suits, ranks);
+					while (Choose != 4)
+					{
+						Hard_Game(deck, hands, Choose, suits, ranks);
+
+
+						system("pause");
+						system("cls");
+
+
+						cout << "Hard\n";
+						DealervsPlayerMenu();
+						cin >> Choose;
+					}
+					
 
 
 					break;
 				default:
-					cout << "Something wrong, try again";
+					cout << "Something wrong, try again\n";
 					break;
 				}
 
@@ -329,6 +378,9 @@ int main()
 
 				LevelofdifficultMenu();
 				cin >> ChooseofLevel;
+
+
+				shuffleCards(deck);
 			}
 
 			break;
