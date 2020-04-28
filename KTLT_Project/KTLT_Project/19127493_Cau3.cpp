@@ -1,11 +1,7 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
-<<<<<<< HEAD
 void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealer, const char* suits[], const char* ranks[]) {
-=======
-void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealerGame, const char* suits[], const char* ranks[]) {
->>>>>>> 8a9e6adf8ce5cfb6f67be2213e61dae30657c2a9
 
 	////		CẤP PHÁT ĐỘNG		////
 	int** dealer = new int* [5];
@@ -28,11 +24,8 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 	int* rank = nullptr;
 	int player;
 
-<<<<<<< HEAD
+
 	switch (ChooseofDealer)
-=======
-	switch (ChooseofDealerGame)
->>>>>>> 8a9e6adf8ce5cfb6f67be2213e61dae30657c2a9
 	{
 
 	case 1:	
@@ -45,7 +38,7 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 		{
 			if (player < 0 || player >= n - 1)
 			{
-				cout << "Something wrong, player is from 0 to " << n - 1 << " try again: ";
+				cout << "Something wrong, player is from 0 to " << n - 2 << " try again: ";
 				cin >> player;
 			}
 

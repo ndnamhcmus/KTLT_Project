@@ -210,41 +210,27 @@ int main()
 				{
 					system("cls");
 					cout << "Something wrong, try again\n";
-					MultiplayerMenu(NumberofPlayers);
+					DealerMenu();
 					cin >> ChooseofDealer;
 				}
 			} while (ChooseofDealer < 1 || ChooseofDealer > 5);
 
 
-			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
-			while (true)
-			{
-				if (ChooseofDealer == 1 || ChooseofDealer == 5)
-				{
-					break;
-				}
-				else
-				{
-					system("cls");
-					cout << "Distribute cards to player before play\n";
-					MultiplayerMenu(NumberofPlayers);
-					cin >> ChooseofDealer;
-				}
-			}
+			
 
 
 			////		OPTION		////
 			while (ChooseofDealer != 5)
 			{
-				MultiPlayer(deck, rank, hands, NumberofPlayers, suits, ranks, ChooseofDealer);
+				Poker_Game_For_Dealer(deck, hands, NumberofPlayers, ChooseofDealer, suits, ranks);
 
 
 				system("pause");
 				system("cls");
 
 
-				MultiplayerMenu(NumberofPlayers);
-				cin >> ChooseofMultiPlayer;
+				DealerMenu();
+				cin >> ChooseofDealer;
 			}
 
 			break;
