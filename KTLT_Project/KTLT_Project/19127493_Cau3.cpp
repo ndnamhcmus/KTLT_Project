@@ -3,22 +3,15 @@
 
 void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealer, const char* suits[], const char* ranks[]) {
 	
-	////		CẤP PHÁT ĐỘNG		////
-	int** dealer = new int* [5];
-	for (int i = 0; i < 5; i++)
-	{
-		*(dealer + i) = new int[2];
-	}
-	
 	hands = dealingForHands(deck, n);
-	dealer = *(hands + n - 1);
+
 	////		In các là bài của từng người chơi		////
 	for (int i = 0; i < n - 1; i++) {
 		cout << "Player " << i << "'s card is: " << endl;
 		printHand(*(hands + i), suits, ranks);
 	}
 	cout << "Dealer's card is: " << endl;
-	printHand(dealer, suits, ranks);
+	printHand(*(hands + n - 1), suits, ranks);
 
 
 	int* rank = nullptr;
@@ -90,15 +83,12 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 				cout << "(" << suits[draw_card[0]] << ", " << ranks[draw_card[1]] << ")" << endl;
 
 				////		Thay thế các lá bài		////
-				dealer[slect_card][0] = draw_card[0];
-				dealer[slect_card][1] = draw_card[1];
+				*(hands + n - 1)[slect_card][0] = draw_card[0];
+				*(hands + n - 1)[slect_card][1] = draw_card[1];
 			}
 		
-
-			*(hands + n - 1) = dealer;
-
 			cout << "Dealer's card after the change is: " << endl;
-			printHand(dealer, suits, ranks);
+			printHand(*(hands + n - 1), suits, ranks);
 			break;
 		}
 
@@ -133,15 +123,13 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 
 				////		Thay thế các lá bài		////
 				if (slect_card1 != 5) {
-					dealer[slect_card1][0] = draw_card1[0];
-					dealer[slect_card1][1] = draw_card1[1];
+					*(hands + n - 1)[slect_card1][0] = draw_card1[0];
+					*(hands + n - 1)[slect_card1][1] = draw_card1[1];
 				}
 			}
 
-			*(hands + n - 1) = dealer;
-
 			cout << "Dealer's card after the change is: " << endl;
-			printHand(dealer, suits, ranks);
+			printHand(*(hands + n - 1), suits, ranks);
 			break;
 		}
 
@@ -169,7 +157,6 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 		break;
 	}
 
-	DellocateDoublePointer(dealer, 5);
 	delete[] rank;
 
 }

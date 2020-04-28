@@ -63,15 +63,23 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 					int slect_card;
 
 					////		Bốc bài		////
+					bool is_found = false;
 					for (int l = 0; l < SUITS; l++)
-						for (int k = 0; k < RANKS; k++)
+						for (int k = 0; k < RANKS; k++) {
 							if (deck[l][k] == n * 5 + card)
 							{
+								is_found = true;
 								draw_card[0] = l;
 								draw_card[1] = k;
 								card++;
 								player_cards++;
+								break;
 							}
+							if (is_found)
+							{
+								break;
+							}
+						}
 					cout << "This is the card you just drew: " << endl;
 					cout << "(" << suits[draw_card[0]] << ", " << ranks[draw_card[1]] << ")" << endl;
 
@@ -103,15 +111,23 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 					int slect_card1;
 
 					////		Bốc bài		////
+					bool is_found1 = false;
 					for (int l = 0; l < SUITS; l++)
-						for (int k = 0; k < RANKS; k++)
+						for (int k = 0; k < RANKS; k++) {
 							if (deck[l][k] == n * 5 + card)
 							{
+								is_found1 = true;
 								draw_card1[0] = l;
 								draw_card1[1] = k;
 								card++;
 								dealer_cards++;
+								break;
 							}
+							if (is_found1)
+							{
+								break;
+							}
+						}
 					cout << "This is the card you just drew: " << endl;
 					cout << "(" << suits[draw_card1[0]] << ", " << ranks[draw_card1[1]] << ")" << endl;
 
@@ -129,16 +145,15 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 				}
 
 			}
-			
-			
-			*(hands + n - 2) = player;
-			*(hands + n - 1) = dealer;
-
-			cout << "Player's card after the change is: " << endl;
-			printHand(player, suits, ranks);
-			cout << "Dealer's card after the change is: " << endl;
-			printHand(dealer, suits, ranks);
 		}
+
+		*(hands + n - 2) = player;
+		*(hands + n - 1) = dealer;
+
+		cout << "Player's card after the change is: " << endl;
+		printHand(player, suits, ranks);
+		cout << "Dealer's card after the change is: " << endl;
+		printHand(dealer, suits, ranks);
 		break;
 
 	case 3:
