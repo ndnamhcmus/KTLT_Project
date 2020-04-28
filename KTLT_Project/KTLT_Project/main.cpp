@@ -47,17 +47,17 @@ int main()
 	cin >> ChooseofGameMode;
 	do
 	{
-		if (ChooseofGameMode < 1 || ChooseofGameMode > 4)
+		if (ChooseofGameMode < 1 || ChooseofGameMode > 5)
 		{
 			cout << "Something wrong, try again\n";
 			GameModeMenu();
 			cin >> ChooseofGameMode;
 		}
-	} while (ChooseofGameMode < 1 || ChooseofGameMode > 4);
+	} while (ChooseofGameMode < 1 || ChooseofGameMode > 5);
 
 
 	////		GAME MODE		////
-	while (ChooseofGameMode != 4)
+	while (ChooseofGameMode != 5)
 	{
 		switch (ChooseofGameMode)
 		{
@@ -114,6 +114,8 @@ int main()
 				cin >> ChooseofSinglePlayer;
 			}
 			break;
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			////		MULTIPLAYER MODE		////
 		case 2:
@@ -176,10 +178,20 @@ int main()
 				system("cls");
 
 
+				if (hands)
+				{
+					////		In các là bài của từng người chơi		////
+					for (int i = 0; i < NumberofPlayers; i++) {
+						cout << "Player " << i << "'s card is: " << endl;
+						printHand(*(hands + i), suits, ranks);
+					}
+				}
 				MultiplayerMenu(NumberofPlayers);
 				cin >> ChooseofMultiPlayer;
 			}
 			break;
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			////		DEALER MODE			////
 		case 3:
@@ -237,11 +249,7 @@ int main()
 		}
 		
 
-		//////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-
-
-
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		system("pause");
 		system("cls");

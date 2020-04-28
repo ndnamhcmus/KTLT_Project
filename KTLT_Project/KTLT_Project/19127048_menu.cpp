@@ -4,8 +4,9 @@ void GameModeMenu()
 {
 	cout << "1. Single player\n";
 	cout << "2. Multiplayer\n";
-	cout << "3. Play with dealer\n";
-	cout << "4. Exit\n";
+	cout << "3. Play with dealer, player can't draw\n";
+	cout << "4. Play with dealer, player can draw\n";
+	cout << "5. Exit\n";
 	cout << "Choose: ";
 }
 
