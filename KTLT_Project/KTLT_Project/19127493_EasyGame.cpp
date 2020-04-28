@@ -3,7 +3,7 @@
 
 const int n = 2;
 
-void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, const char* suits[], const char* ranks[]) {
+void Easy_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofEasyGame, const char* suits[], const char* ranks[]) {
 
 	////		CẤP PHÁT ĐỘNG		////
 	int** dealer = new int* [5];
@@ -32,8 +32,9 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 	int* rank = nullptr;
 	int times;
 	int card;
+	int player_cards = 0;
 
-	switch (ChooseofPokerGame)
+	switch (ChooseofEasyGame)
 	{
 
 	case 1:////		Kiểm tra điểm của người chơi và dealer 		////
@@ -68,6 +69,7 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 								draw_card[0] = l;
 								draw_card[1] = k;
 								card++;
+								player_cards++;
 							}
 					cout << "This is the card you just drew: " << endl;
 					cout << "(" << suits[draw_card[0]] << ", " << ranks[draw_card[1]] << ")" << endl;
@@ -125,8 +127,8 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 				}
 
 			}
-			
-			
+
+
 			*(hands + n - 2) = player;
 			*(hands + n - 1) = dealer;
 
@@ -139,9 +141,7 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 
 	case 3:
 
-		rank = rankingHands(hands, n);
-		cout << "Player's score after the change is " << getStatusOfHand(player) << endl;
-		cout << "Dealer's score after the change is " << getStatusOfHand(dealer) << endl;
+		rank = rankingHands_for_easygame(hands, n, player_cards);
 		cout << "Rank:\t";
 		for (int i = 1; i <= n; i++)
 		{

@@ -2,7 +2,7 @@
 #include "19127493.h"
 
 void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealer, const char* suits[], const char* ranks[]) {
-
+	
 	////		CẤP PHÁT ĐỘNG		////
 	int** dealer = new int* [5];
 	for (int i = 0; i < 5; i++)
