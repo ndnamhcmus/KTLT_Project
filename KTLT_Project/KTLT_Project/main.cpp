@@ -13,6 +13,7 @@ int main()
 	int ChooseofGameMode;
 	int ChooseofSinglePlayer;
 	int ChooseofMultiPlayer;
+	int ChooseofDealer;
 
 
 	////		FOR MULTIPLAYER		////
@@ -46,17 +47,17 @@ int main()
 	cin >> ChooseofGameMode;
 	do
 	{
-		if (ChooseofGameMode < 1 || ChooseofGameMode > 4)
+		if (ChooseofGameMode < 1 || ChooseofGameMode > 5)
 		{
 			cout << "Something wrong, try again\n";
 			GameModeMenu();
 			cin >> ChooseofGameMode;
 		}
-	} while (ChooseofGameMode < 1 || ChooseofGameMode > 4);
+	} while (ChooseofGameMode < 1 || ChooseofGameMode > 5);
 
 
 	////		GAME MODE		////
-	while (ChooseofGameMode != 4)
+	while (ChooseofGameMode != 5)
 	{
 		switch (ChooseofGameMode)
 		{
@@ -113,6 +114,8 @@ int main()
 				cin >> ChooseofSinglePlayer;
 			}
 			break;
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			////		MULTIPLAYER MODE		////
 		case 2:
@@ -175,20 +178,78 @@ int main()
 				system("cls");
 
 
+				if (hands)
+				{
+					////		In các là bài của từng người chơi		////
+					for (int i = 0; i < NumberofPlayers; i++) {
+						cout << "Player " << i << "'s card is: " << endl;
+						printHand(*(hands + i), suits, ranks);
+					}
+				}
 				MultiplayerMenu(NumberofPlayers);
 				cin >> ChooseofMultiPlayer;
 			}
 			break;
 
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+			////		DEALER MODE			////
+		case 3:
+
+			system("cls");
+			cout << "How many players (include dealer) you want to play with: ";
+			cin >> NumberofPlayers;
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////s
+			do
+			{
+				if (NumberofPlayers < 2 || NumberofPlayers > 10)
+				{
+					system("cls");
+					cout << "Number of players (include dealer) must greater than 2 and smaller than 10, try again: ";
+					cin >> NumberofPlayers;
+				}
+			} while (NumberofPlayers < 2 || NumberofPlayers > 10);
+
+
+			DealerMenu();
+			cin >> ChooseofDealer;
+
+
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			do
+			{
+				if (ChooseofDealer < 1 || ChooseofDealer > 5)
+				{
+					system("cls");
+					cout << "Something wrong, try again\n";
+					DealerMenu();
+					cin >> ChooseofDealer;
+				}
+			} while (ChooseofDealer < 1 || ChooseofDealer > 5);
+
+
+			
+
+
+			////		OPTION		////
+			while (ChooseofDealer != 5)
+			{
+				Poker_Game_For_Dealer(deck, hands, NumberofPlayers, ChooseofDealer, suits, ranks);
+
+
+				system("pause");
+				system("cls");
+
+
+				DealerMenu();
+				cin >> ChooseofDealer;
+			}
+
+			break;
 		}
 		
 
-		//////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-
-
-
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		system("pause");
 		system("cls");

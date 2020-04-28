@@ -142,10 +142,10 @@ void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, const
 
 		hands = dealingForHands(deck, n);
 		////		In các là bài của từng người chơi		////
-		for (int i = 0; i < n; i++) {
+		/*for (int i = 0; i < n; i++) {
 			cout << "Player " << i << "'s card is: " << endl;
 			printHand(*(hands + i), suits, ranks);
-		}
+		}*/
 		break;
 
 	case 2:
