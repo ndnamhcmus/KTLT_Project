@@ -9,6 +9,7 @@ void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], cons
 
 	case 1:
 
+		shuffleCards(deck);
 		hand = dealingForHand(deck);
 		break;
 
@@ -129,10 +130,13 @@ void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], cons
 	}
 }
 
-void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, const char* suits[], const char* ranks[], int ChooseofMultiPlayer)
+void MultiPlayer(int deck[SUITS][RANKS], int***& hands, int n, const char* suits[], const char* ranks[], int ChooseofMultiPlayer)
 {
 	int player;
 	int times;
+
+
+	int* rank = nullptr;
 
 
 	switch (ChooseofMultiPlayer)
@@ -140,6 +144,7 @@ void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, const
 
 	case 1:
 
+		shuffleCards(deck);
 		hands = dealingForHands(deck, n);
 		////		In các là bài của từng người chơi		////
 		/*for (int i = 0; i < n; i++) {
@@ -203,4 +208,5 @@ void MultiPlayer(int deck[SUITS][RANKS], int*& rank, int***& hands, int n, const
 		cout << "Something wrong, try again: ";
 		break;
 	}
+	delete[] rank;
 }

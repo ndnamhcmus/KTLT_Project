@@ -171,7 +171,7 @@ int main()
 			////		OPTION		////
 			while (ChooseofMultiPlayer != 5)
 			{
-				MultiPlayer(deck, rank, hands, NumberofPlayers, suits, ranks, ChooseofMultiPlayer);
+				MultiPlayer(deck, hands, NumberofPlayers, suits, ranks, ChooseofMultiPlayer);
 
 
 				system("pause");
