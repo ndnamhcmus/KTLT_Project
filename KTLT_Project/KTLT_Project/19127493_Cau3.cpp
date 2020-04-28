@@ -40,7 +40,7 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 				cin >> player;
 			}
 
-		} while (player < 0 || player >= n - 2);
+		} while (player < 0 || player >= n - 1);
 		cout << "Player" << player << "'s score is " << getStatusOfHand(*(hands + player)) << endl;
 		break;
 
