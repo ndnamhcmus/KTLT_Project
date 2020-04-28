@@ -114,6 +114,7 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 		}
 	}
 
+
 	////		TÌM CÁC LÁ BÀI TRONG MA TRẬN DECK		////
 	bool is_found = false;
 	int IndexofResult = 0;

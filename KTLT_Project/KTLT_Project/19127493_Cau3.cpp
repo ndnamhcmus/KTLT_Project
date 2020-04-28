@@ -75,7 +75,7 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 
 			for (int i = 0; i < card; i++) {
 				////		Random lá bài thay thế		////
-				slect_card = rand() % 4;
+				slect_card = rand() % 5;
 				cout << "Card number " << slect_card << " will be replaced" << endl;
 
 				////		Bốc bài		////
