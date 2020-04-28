@@ -1,7 +1,7 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
-void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofMultiPlayer, const char* suits[], const char* ranks[]) {
+void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealer, const char* suits[], const char* ranks[]) {
 
 	////		CẤP PHÁT ĐỘNG		////
 	int** dealer = new int* [5];
@@ -25,7 +25,7 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 	int player;
 	int times;
 
-	switch (ChooseofMultiPlayer)
+	switch (ChooseofDealer)
 	{
 
 	case 1:	
