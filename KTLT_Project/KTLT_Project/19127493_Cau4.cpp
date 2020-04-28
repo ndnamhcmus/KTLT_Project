@@ -3,25 +3,9 @@
 
 const int n = 2;
 
-void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, const char* suits[], const char* ranks[], string check) {
+void Poker_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& dealer, int& player_cards, int& dealer_cards, int ChooseofPokerGame, const char* suits[], const char* ranks[], string check) {
 
-	////		CẤP PHÁT ĐỘNG		////
-	int** dealer = new int* [5];
-	for (int i = 0; i < 5; i++)
-	{
-		*(dealer + i) = new int[2];
-	}
-
-	int** player = new int* [5];
-	for (int i = 0; i < 5; i++)
-	{
-		*(player + i) = new int[2];
-	}
-
-	hands = dealingForHands(deck, n);
-	dealer = *(hands + n - 1);
-	player = *(hands + n - 2);
-
+	
 	////		In các là bài của người chơi và Dealer		////
 	cout << "Player's card is: " << endl;
 	printHand(player, suits, ranks);
@@ -32,8 +16,6 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 	int* rank = nullptr;
 	int times;
 	int card;
-	int player_cards = 0;
-	int dealer_cards = 0;
 
 	switch (ChooseofPokerGame)
 	{
@@ -146,9 +128,6 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 
 			}
 		}
-
-		*(hands + n - 2) = player;
-		*(hands + n - 1) = dealer;
 
 		cout << "Player's card after the change is: " << endl;
 		printHand(player, suits, ranks);

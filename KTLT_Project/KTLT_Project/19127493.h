@@ -32,10 +32,10 @@ int* NEW_rankingHands(int*** hands, int n, int player_cards, int dealer_cards, s
 
 void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealer, const char* suits[], const char* ranks[]);
 
-void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, const char* suits[], const char* ranks[], string check);
+void Poker_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& dealer, int& player_cards, int& dealer_cards, int ChooseofPokerGame, const char* suits[], const char* ranks[], string check);
 
-void Easy_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, const char* suits[], const char* ranks[]);
+void Easy_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& dealer, int& player_cards, int& dealer_cards, int ChooseofPokerGame, const char* suits[], const char* ranks[]);
 
-void Medium_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, const char* suits[], const char* ranks[]);
+void Medium_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& dealer, int& player_cards, int& dealer_cards, int ChooseofPokerGame, const char* suits[], const char* ranks[]);
 
-void Hard_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, const char* suits[], const char* ranks[]);
+void Hard_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& dealer, int& player_cards, int& dealer_cards, int ChooseofPokerGame, const char* suits[], const char* ranks[]);

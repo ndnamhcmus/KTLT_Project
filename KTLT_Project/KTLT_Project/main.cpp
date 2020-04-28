@@ -23,10 +23,16 @@ int main()
 	int NumberofPlayers;
 	int times;
 
+	////		FOR LEVELs		////
+	int player_cards = 0;
+	int dealer_cards = 0;
+	int** dealer;
+	int** player;
 
 	////		POINTER		////
 	int** hand = nullptr;
 	int*** hands = nullptr;
+	
 	
 	/*int *a;
 	a = new int[3];
@@ -278,6 +284,19 @@ int main()
 			LevelofdifficultMenu();
 			cin >> ChooseofLevel;
 
+			////		CẤP PHÁT ĐỘNG		////
+			int** dealer = new int* [5];
+			for (int i = 0; i < 5; i++)
+			{
+				*(dealer + i) = new int[2];
+			}
+
+			int** player = new int* [5];
+			for (int i = 0; i < 5; i++)
+			{
+				*(player + i) = new int[2];
+			}
+
 
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			do
@@ -302,6 +321,14 @@ int main()
 					system("cls");
 					cout << "Easy\n";
 
+					shuffleCards(deck);
+
+					hands = dealingForHands(deck, 2);
+					player = *hands;
+					dealer = *(hands + 1);
+
+					player_cards = 0;
+					dealer_cards = 0;
 
 					DealervsPlayerMenu();
 					cin >> Choose;
@@ -310,7 +337,10 @@ int main()
 
 					while (Choose != 4)
 					{
-						Easy_Game(deck, hands, Choose, suits, ranks);
+						*hands = player;
+						*(hands + 1) = dealer;
+
+						Easy_Game(deck, hands, player, dealer, player_cards, dealer_cards, Choose, suits, ranks);
 
 
 						system("pause");
@@ -332,6 +362,14 @@ int main()
 					system("cls");
 					cout << "Medium\n";
 
+					shuffleCards(deck);
+
+					hands = dealingForHands(deck, 2);
+					player = *hands;
+					dealer = *(hands + 1);
+
+					player_cards = 0;
+					dealer_cards = 0;
 
 					DealervsPlayerMenu();
 					cin >> Choose;
@@ -340,7 +378,10 @@ int main()
 
 					while (Choose != 4)
 					{
-						Medium_Game(deck, hands, Choose, suits, ranks);
+						*hands = player;
+						*(hands + 1) = dealer;
+
+						Medium_Game(deck, hands, player, dealer, player_cards, dealer_cards, Choose, suits, ranks);
 
 
 						system("pause");
@@ -362,6 +403,14 @@ int main()
 					system("cls");
 					cout << "Hard\n";
 
+					shuffleCards(deck);
+
+					hands = dealingForHands(deck, 2);
+					player = *hands;
+					dealer = *(hands + 1);
+
+					player_cards = 0;
+					dealer_cards = 0;
 
 					DealervsPlayerMenu();
 					cin >> Choose;
@@ -370,7 +419,10 @@ int main()
 
 					while (Choose != 4)
 					{
-						Hard_Game(deck, hands, Choose, suits, ranks);
+						*hands = player;
+						*(hands + 1) = dealer;
+
+						Hard_Game(deck, hands, player, dealer, player_cards, dealer_cards, Choose, suits, ranks);
 
 
 						system("pause");
@@ -399,12 +451,10 @@ int main()
 
 				LevelofdifficultMenu();
 				cin >> ChooseofLevel;
-
-
-				shuffleCards(deck);
 			}
 
-
+			DellocateDoublePointer(player, 5);
+			DellocateDoublePointer(dealer, 5);
 			break;
 		}
 
