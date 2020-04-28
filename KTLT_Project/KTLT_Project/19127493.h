@@ -27,3 +27,7 @@ int* evaluateHands(int n, int s);
 ////////////////////////////////////////////////////////////////////////////////
 
 int getHighestMark(int** hand);
+
+void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealerGame, const char* suits[], const char* ranks[]);
+
+void Poker_Game(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofPokerGame, const char* suits[], const char* ranks[]);

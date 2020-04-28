@@ -36,6 +36,9 @@
     <ClCompile Include="19127493_Cau4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="19127493_Cau5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="19127048.h">

@@ -39,7 +39,7 @@ void MultiplayerMenu(int n)
 {
 	cout << "1. Distributes cards to " << n << " players\n";
 	cout << "2. The hand-ranking of five cards\n";
-	cout << "3. Ranks players in one turn\n";
+	cout << "3. Ranking players in one turn\n";
 	cout << "4. Play [times] and find the winner\n";
 	cout << "5. Exit\n";
 	cout << "Choose: ";
@@ -47,5 +47,10 @@ void MultiplayerMenu(int n)
 
 void DealerMenu()
 {
-
+	cout << "1. Check player score\n";
+	cout << "2. Check dealer score\n";
+	cout << "3. Dealer, do you want to draw?\n";
+	cout << "4. Ranking players and dealer\n";
+	cout << "5. Exit\n";
+	cout << "Choose: ";
 }

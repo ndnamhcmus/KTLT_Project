@@ -13,6 +13,7 @@ int main()
 	int ChooseofGameMode;
 	int ChooseofSinglePlayer;
 	int ChooseofMultiPlayer;
+	int ChooseofDealer;
 
 
 	////		FOR MULTIPLAYER		////
@@ -186,6 +187,7 @@ int main()
 			system("cls");
 			cout << "How many players (include dealer) you want to play with: ";
 			cin >> NumberofPlayers;
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////s
 			do
 			{
 				if (NumberofPlayers < 2 || NumberofPlayers > 10)
@@ -197,27 +199,27 @@ int main()
 			} while (NumberofPlayers < 2 || NumberofPlayers > 10);
 
 
-			MultiplayerMenu(NumberofPlayers);
-			cin >> ChooseofMultiPlayer;
+			DealerMenu();
+			cin >> ChooseofDealer;
 
 
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			do
 			{
-				if (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 5)
+				if (ChooseofDealer < 1 || ChooseofDealer > 5)
 				{
 					system("cls");
 					cout << "Something wrong, try again\n";
 					MultiplayerMenu(NumberofPlayers);
-					cin >> ChooseofMultiPlayer;
+					cin >> ChooseofDealer;
 				}
-			} while (ChooseofMultiPlayer < 1 || ChooseofMultiPlayer > 5);
+			} while (ChooseofDealer < 1 || ChooseofDealer > 5);
 
 
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			while (true)
 			{
-				if (ChooseofMultiPlayer == 1 || ChooseofMultiPlayer == 5)
+				if (ChooseofDealer == 1 || ChooseofDealer == 5)
 				{
 					break;
 				}
@@ -226,15 +228,15 @@ int main()
 					system("cls");
 					cout << "Distribute cards to player before play\n";
 					MultiplayerMenu(NumberofPlayers);
-					cin >> ChooseofMultiPlayer;
+					cin >> ChooseofDealer;
 				}
 			}
 
 
 			////		OPTION		////
-			while (ChooseofMultiPlayer != 5)
+			while (ChooseofDealer != 5)
 			{
-				MultiPlayer(deck, rank, hands, NumberofPlayers, suits, ranks, ChooseofMultiPlayer);
+				MultiPlayer(deck, rank, hands, NumberofPlayers, suits, ranks, ChooseofDealer);
 
 
 				system("pause");
