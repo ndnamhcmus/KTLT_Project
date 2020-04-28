@@ -10,10 +10,13 @@ int main()
 
 
 	////		FOR MENU		////
+	int Choose;
 	int ChooseofGameMode;
 	int ChooseofSinglePlayer;
 	int ChooseofMultiPlayer;
 	int ChooseofDealer;
+	int ChooseofDealervsPlayer;
+	int ChooseofLevel;
 
 
 	////		FOR MULTIPLAYER		////
@@ -22,7 +25,6 @@ int main()
 
 
 	////		POINTER		////
-	int* rank = nullptr;
 	int** hand = nullptr;
 	int*** hands = nullptr;
 	
@@ -246,8 +248,91 @@ int main()
 			}
 
 			break;
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			////		LEVEL		////
+		case 4:
+
+			system("cls");
+			LevelofdifficultMenu();
+			cin >> ChooseofLevel;
+
+
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
+			do
+			{
+				if (ChooseofLevel < 1 || ChooseofLevel > 3)
+				{
+					system("cls");
+					cout << "Something wrong, try again\n";
+					LevelofdifficultMenu();
+					cin >> ChooseofLevel;
+				}
+			} while (ChooseofLevel < 1 || ChooseofLevel > 3);
+
+
+			while (ChooseofLevel != 4)
+			{
+				switch (ChooseofLevel)	// chọn mức độ
+				{
+				case 1:		// mức dễ
+					cout << "Easy\n";
+
+
+					DealervsPlayerMenu();
+					cin >> Choose;
+					isChooseValid(Choose);
+
+
+					Easy_Game(deck, hands, Choose, suits, ranks);
+					
+
+					break;
+
+				case 2:
+					cout << "Medium\n";
+
+
+					DealervsPlayerMenu();
+					cin >> Choose;
+					isChooseValid(Choose);
+
+
+					Medium_Game(deck, hands, Choose, suits, ranks);
+
+
+					break;
+
+				case 3:
+					cout << "Hard\n";
+
+
+					DealervsPlayerMenu();
+					cin >> Choose;
+					isChooseValid(Choose);
+
+
+					Hard_Game(deck, hands, Choose, suits, ranks);
+
+
+					break;
+				default:
+					cout << "Something wrong, try again";
+					break;
+				}
+
+
+				system("pause");
+				system("cls");
+
+
+				LevelofdifficultMenu();
+				cin >> ChooseofLevel;
+			}
+
+			break;
 		}
-		
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -262,10 +347,6 @@ int main()
 
 
 
-	if (rank)
-	{
-		delete[] rank;
-	}
 	if (hand)
 	{
 		DellocateDoublePointer(hand, 5);

@@ -6,5 +6,4 @@ const int n = 2;
 void Easy_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, const char* suits[], const char* ranks[]) {
 
 	Poker_Game(deck, hands, ChooseofPokerGame, suits, ranks, "Easy Game");
-
 }

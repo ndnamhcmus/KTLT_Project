@@ -15,6 +15,7 @@ void LevelofdifficultMenu()
 	cout << "1. Easy\n";
 	cout << "2. Medium\n";
 	cout << "3. Hard\n";
+	cout << "4. Exit\n";
 	cout << "Choose: ";
 }
 
@@ -54,4 +55,27 @@ void DealerMenu()
 	cout << "4. Ranking players and dealer\n";
 	cout << "5. Exit\n";
 	cout << "Choose: ";
+}
+
+void DealervsPlayerMenu()
+{
+	cout << "1. Display score of player and dealer\n";
+	cout << "2. Draw card\n";
+	cout << "3. Ranking player and dealer\n";
+	cout << "4. Exit\n";
+	cout << "Choose: ";
+}
+
+void isChooseValid(int& Choose)
+{
+	do
+	{
+		if (Choose < 1 || Choose > 4)
+		{
+			system("cls");
+			cout << "Something wrong, try again\n";
+			DealervsPlayerMenu();
+			cin >> Choose;
+		}
+	} while (Choose < 1 || Choose > 4);
 }

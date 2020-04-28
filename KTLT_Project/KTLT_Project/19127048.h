@@ -39,13 +39,21 @@ void MultiplayerMenu(int n);
 
 void DealerMenu();
 
+void DealervsPlayerMenu();
+
 ////////////////////////////////////////////////////////////////////////////////
 
-////		main		////
+////		MODE		////
 
 void SinglePlayer(int deck[SUITS][RANKS], int array[], const char* suits[], const char* ranks[], int**& hand, int ChooseofSinglePlayer);
 
 void MultiPlayer(int deck[SUITS][RANKS], int***& hands, int n, const char* suits[], const char* ranks[], int ChooseofMultiPlayer);
+
+////////////////////////////////////////////////////////////////////////////////
+
+////		VALID		////
+
+void isChooseValid(int& Choose);
 
 ////////////////////////////////////////////////////////////////////////////////
 
