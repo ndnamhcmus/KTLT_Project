@@ -42,6 +42,9 @@
     <ClCompile Include="19127493_HARDGAME.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="19127493_MediumGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="19127048.h">

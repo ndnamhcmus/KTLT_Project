@@ -146,6 +146,7 @@
     <ClCompile Include="19127493_EasyGame.cpp" />
     <ClCompile Include="19127493_function.cpp" />
     <ClCompile Include="19127493_HARDGAME.cpp" />
+    <ClCompile Include="19127493_MediumGame.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

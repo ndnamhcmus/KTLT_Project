@@ -211,7 +211,7 @@ int getHighestMark(int** hand) {
 	return 0;
 }
 
-int* rankingHands_for_easygame(int*** hands, int n, int player_cards)
+int* NEW_rankingHands(int*** hands, int n, int player_cards, int dealer_cards, string check)
 {
 	int* RankofThePlayer = new int[n];
 	int* ScoreofThePlayer = new int[n];
@@ -221,12 +221,15 @@ int* rankingHands_for_easygame(int*** hands, int n, int player_cards)
 		ScoreofThePlayer[i] = getStatusOfHand(*(hands + i));
 		RankofThePlayer[i] = i;
 	}
+	if (check == "Easy Game") 
+		ScoreofThePlayer[1] = ScoreofThePlayer[1] - (3 - player_cards);
 
-	ScoreofThePlayer[1] = ScoreofThePlayer[1] - (3 - player_cards);
+	if (check == "Hard Game")
+		ScoreofThePlayer[0] = ScoreofThePlayer[0] - (3 - dealer_cards);
 
 	cout << "Player's score after the change is " << ScoreofThePlayer[0] << endl;
 	cout << "Dealer's score after the change is " << ScoreofThePlayer[1] << endl;
-
+	
 	////		SORT RANK		////
 	for (int i = 0; i < n - 1; i++)
 	{
@@ -248,42 +251,6 @@ int* rankingHands_for_easygame(int*** hands, int n, int player_cards)
 	return RankofThePlayer;
 }
 
-int* rankingHands_for_hardgame(int*** hands, int n, int Dealer_cards)
-{
-	int* RankofThePlayer = new int[n];
-	int* ScoreofThePlayer = new int[n];
-
-	for (int i = 0; i < n; i++)
-	{
-		ScoreofThePlayer[i] = getStatusOfHand(*(hands + i));
-		RankofThePlayer[i] = i;
-	}
-
-	ScoreofThePlayer[0] = ScoreofThePlayer[0] - (3 - Dealer_cards);
-
-	cout << "Player's score after the change is " << ScoreofThePlayer[0] << endl;
-	cout << "Dealer's score after the change is " << ScoreofThePlayer[1] << endl;
-
-	////		SORT RANK		////
-	for (int i = 0; i < n - 1; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (ScoreofThePlayer[i] < ScoreofThePlayer[j])
-			{
-				swap(ScoreofThePlayer[i], ScoreofThePlayer[j]);
-				swap(RankofThePlayer[i], RankofThePlayer[j]);
-			}
-		}
-	}
-
-
-	delete[] ScoreofThePlayer;
-	ScoreofThePlayer = nullptr;
-
-
-	return RankofThePlayer;
-}
 
 
 
