@@ -138,8 +138,8 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 			printHand(player, suits, ranks);
 			cout << "Dealer's card after the change is: " << endl;
 			printHand(dealer, suits, ranks);
-			break;
 		}
+		break;
 
 	case 3:
 

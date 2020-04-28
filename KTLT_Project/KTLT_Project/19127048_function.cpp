@@ -120,7 +120,7 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 	int IndexofResult = 0;
 	for (int IndexorArray = 0; IndexorArray < 5; IndexorArray++)
 	{
-		bool is_found = false;
+		is_found = false;
 		for (int i = 0; i < SUITS; i++)
 		{
 			for (int j = 0; j < RANKS; j++)

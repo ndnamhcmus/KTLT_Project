@@ -119,6 +119,10 @@ int main()
 				SinglePlayerMenu();
 				cin >> ChooseofSinglePlayer;
 			}
+
+			DellocateDoublePointer(hand, 5);
+
+
 			break;
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,6 +199,11 @@ int main()
 				MultiplayerMenu(NumberofPlayers);
 				cin >> ChooseofMultiPlayer;
 			}
+
+
+			DellocateTriplePointer(hands, NumberofPlayers, 5);
+
+
 			break;
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -250,6 +259,10 @@ int main()
 				DealerMenu();
 				cin >> ChooseofDealer;
 			}
+
+
+			DellocateTriplePointer(hands, NumberofPlayers, 5);
+
 
 			break;
 
@@ -309,6 +322,9 @@ int main()
 					}
 
 
+					DellocateTriplePointer(hands, NumberofPlayers, 5);
+
+
 					break;
 
 					////		MEDIUM		////
@@ -334,6 +350,9 @@ int main()
 						DealervsPlayerMenu();
 						cin >> Choose;
 					}
+
+
+					DellocateTriplePointer(hands, NumberofPlayers, 5);
 
 
 					break;
@@ -364,6 +383,8 @@ int main()
 					}
 					
 
+					DellocateTriplePointer(hands, NumberofPlayers, 5);
+
 
 					break;
 				default:
@@ -383,6 +404,7 @@ int main()
 				shuffleCards(deck);
 			}
 
+
 			break;
 		}
 
@@ -397,16 +419,6 @@ int main()
 	}
 	
 
-
-
-	if (hand)
-	{
-		DellocateDoublePointer(hand, 5);
-	}
-	if (hands)
-	{
-		DellocateTriplePointer(hands, NumberofPlayers, 5);
-	}
 	system("pause");
 	return 0;
 }
