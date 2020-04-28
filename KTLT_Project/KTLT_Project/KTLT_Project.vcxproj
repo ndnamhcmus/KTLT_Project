@@ -143,10 +143,8 @@
     <ClCompile Include="19127048_menu.cpp" />
     <ClCompile Include="19127493_Cau3.cpp" />
     <ClCompile Include="19127493_Cau4.cpp" />
-    <ClCompile Include="19127493_EasyGame.cpp" />
     <ClCompile Include="19127493_function.cpp" />
-    <ClCompile Include="19127493_HARDGAME.cpp" />
-    <ClCompile Include="19127493_MediumGame.cpp" />
+    <ClCompile Include="19127493_GameLevels.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
