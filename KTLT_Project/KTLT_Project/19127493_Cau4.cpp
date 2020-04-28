@@ -176,7 +176,6 @@ void Poker_Game(int deck[SUITS][RANKS], int***& hands, int ChooseofPokerGame, co
 		break;
 	}
 
-	DellocateDoublePointer(player, 5);
-	DellocateDoublePointer(dealer, 5);
+	
 	delete[] rank;
 }
