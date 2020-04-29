@@ -230,7 +230,7 @@ int* evaluateHands(int n, int s, const char* suits[], const char* ranks[]) {
 
 	int* RankofThePlayer = new int[n];
 	for (int i = 0; i < n; i++)
-		RankofThePlayer[i] = i + 1;
+		RankofThePlayer[i] = i;
 
 ///         Xếp hạng cho người chơi		////
 
