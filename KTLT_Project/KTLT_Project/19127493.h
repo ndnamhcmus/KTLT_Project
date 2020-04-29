@@ -22,7 +22,7 @@ int getHighestCard(int** hand);
 
 int getStatusOfHand(int** hand);
 
-int* evaluateHands(int n, int s);
+int* evaluateHands(int n, int s, const char* suits[], const char* ranks[]);
 
 ////////////////////////////////////////////////////////////////////////////////
 

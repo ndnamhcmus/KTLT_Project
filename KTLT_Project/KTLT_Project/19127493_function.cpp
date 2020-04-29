@@ -201,7 +201,7 @@ int getHighestCard(int** hand) {
 int getStatusOfHand(int** hand) {
 	return getHighestMark(hand);
 }
-int* evaluateHands(int n, int s) {
+int* evaluateHands(int n, int s, const char* suits[], const char* ranks[]) {
 
 ///         Khởi tạo mảng lưu điểm của người chơi		////
 	
@@ -217,6 +217,12 @@ int* evaluateHands(int n, int s) {
 		shuffleCards(deck);
 		//printMatrix(deck);
 		int*** test = dealingForHands(deck, n);
+		cout << "Turn #" << time << ":" << endl;
+		for (int i = 0; i < n; i++) {
+			cout << "Player " << i << "'s card is: " << endl;
+			printHand(*(test + i), suits, ranks);
+		}
+			
 		//print3DArray(test, n, 5, 2);
 		for (int i = 0; i < n; i++)
 			ScoreofThePlayer[i] = ScoreofThePlayer[i] + getStatusOfHand(*(test + i));

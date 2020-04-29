@@ -188,7 +188,7 @@ void MultiPlayer(int deck[SUITS][RANKS], int***& hands, int n, const char* suits
 
 		cout << "How many times you want to play: ";
 		cin >> times;
-		rank = evaluateHands(n, times);
+		rank = evaluateHands(n, times, suits, ranks);
 		
 
 		cout << "Rank:\t";
