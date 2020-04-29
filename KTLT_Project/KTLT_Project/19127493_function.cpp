@@ -215,9 +215,9 @@ int* evaluateHands(int n, int s) {
 	
 	for (int time = 1; time <= s; time++) {
 		shuffleCards(deck);
-		printMatrix(deck);
+		//printMatrix(deck);
 		int*** test = dealingForHands(deck, n);
-		print3DArray(test, n, 5, 2);
+		//print3DArray(test, n, 5, 2);
 		for (int i = 0; i < n; i++)
 			ScoreofThePlayer[i] = ScoreofThePlayer[i] + getStatusOfHand(*(test + i));
 	}
