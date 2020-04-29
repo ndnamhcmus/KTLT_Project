@@ -24,14 +24,12 @@ int main()
 	int times;
 
 	////		FOR DEALER MODE		////
-	int** dealer_cau3;
+	int** dealer_cau3 = nullptr;
 	int*** hands_cau3 = nullptr;
 
 	////		FOR LEVELs		////
 	int player_cards = 0;
 	int dealer_cards = 0;
-	int** dealer;
-	int** player;
 
 	////		POINTER		////
 	int** hand = nullptr;

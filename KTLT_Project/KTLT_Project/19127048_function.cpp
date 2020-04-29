@@ -527,7 +527,7 @@ bool checkStraight(int** hand)
 	return true;
 }
 
-int** DellocateDoublePointer(int** Matrix, int Row)
+void DellocateDoublePointer(int**& Matrix, int Row)
 {
 	for (int i = 0; i < Row; i++)
 	{
@@ -535,12 +535,9 @@ int** DellocateDoublePointer(int** Matrix, int Row)
 	}
 	delete[] Matrix;
 	Matrix = nullptr;
-
-
-	return Matrix;
 }
 
-int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row)
+void DellocateTriplePointer(int***& Array3D, int sizeof3D, int Row)
 {
 	////		GIẢI PHÓNG MẢNG 1D		////
 	for (int i = 0; i < sizeof3D; i++)
@@ -560,7 +557,4 @@ int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row)
 
 
 	Array3D = nullptr;
-
-
-	return Array3D;
 }

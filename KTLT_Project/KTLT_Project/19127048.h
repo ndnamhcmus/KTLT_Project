@@ -71,6 +71,6 @@ bool checkFlush(int** hand);
 
 bool checkStraight(int** hand);
 
-int** DellocateDoublePointer(int** Matrix, int Row);
+void DellocateDoublePointer(int**& Matrix, int Row);
 
-int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row);
+void DellocateTriplePointer(int***& Array3D, int sizeof3D, int Row);
