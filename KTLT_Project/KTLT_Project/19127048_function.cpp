@@ -87,7 +87,7 @@ int** dealingForHand(int deck[SUITS][RANKS])
 
 int** createHandTest(int deck[SUITS][RANKS], int a[])
 {
-	printMatrix(deck);
+	//printMatrix(deck);
 	////		CẤP PHÁT ĐỘNG DÙNG ĐỂ LƯU CÁC VỊ TRÍ TRONG BỘ BÀI		////
 	int** result = new int* [5];
 	for (int i = 0; i < 5; i++)
