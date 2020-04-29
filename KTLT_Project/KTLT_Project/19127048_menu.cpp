@@ -59,9 +59,9 @@ void DealerMenu()
 
 void DealervsPlayerMenu()
 {
-	cout << "1. Display score of player and dealer\n";
+	cout << "1. Display score of player and dealer before drawing cards\n";
 	cout << "2. Draw card\n";
-	cout << "3. Ranking player and dealer\n";
+	cout << "3. Ranking and display score of player and dealer\n";
 	cout << "4. Exit\n";
 	cout << "Choose: ";
 }
