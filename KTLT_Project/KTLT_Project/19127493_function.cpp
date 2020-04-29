@@ -202,7 +202,6 @@ int getStatusOfHand(int** hand) {
 	return getHighestMark(hand);
 }
 int* evaluateHands(int n, int s, const char* suits[], const char* ranks[]) {
-
 ///         Khởi tạo mảng lưu điểm của người chơi		////
 	
 	int* ScoreofThePlayer = new int[n];
@@ -230,7 +229,7 @@ int* evaluateHands(int n, int s, const char* suits[], const char* ranks[]) {
 
 	int* RankofThePlayer = new int[n];
 	for (int i = 0; i < n; i++)
-		RankofThePlayer[i] = i + 1;
+		RankofThePlayer[i] = i;
 
 ///         Xếp hạng cho người chơi		////
 
