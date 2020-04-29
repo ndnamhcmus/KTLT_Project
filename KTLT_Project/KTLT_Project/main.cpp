@@ -324,8 +324,13 @@ int main()
 					shuffleCards(deck);
 
 					hands = dealingForHands(deck, 2);
-					player = *hands;
-					dealer = *(hands + 1);
+
+					for (int i = 0; i < 5; i++)
+						for (int j = 0; j < 2; j++) {
+							player[i][j] = hands[0][i][j];
+							dealer[i][j] = hands[1][i][j];
+						}
+					
 
 					player_cards = 0;
 					dealer_cards = 0;
@@ -337,8 +342,12 @@ int main()
 
 					while (Choose != 4)
 					{
-						*hands = player;
-						*(hands + 1) = dealer;
+
+						for (int i = 0; i < 5; i++)
+							for (int j = 0; j < 2; j++) {
+								hands[0][i][j] = player[i][j];
+								hands[1][i][j] = dealer[i][j];
+							}
 
 						Easy_Game(deck, hands, player, dealer, player_cards, dealer_cards, Choose, suits, ranks);
 
@@ -365,8 +374,11 @@ int main()
 					shuffleCards(deck);
 
 					hands = dealingForHands(deck, 2);
-					player = *hands;
-					dealer = *(hands + 1);
+					for (int i = 0; i < 5; i++)
+						for (int j = 0; j < 2; j++) {
+							player[i][j] = hands[0][i][j];
+							dealer[i][j] = hands[1][i][j];
+						}
 
 					player_cards = 0;
 					dealer_cards = 0;
@@ -378,8 +390,11 @@ int main()
 
 					while (Choose != 4)
 					{
-						*hands = player;
-						*(hands + 1) = dealer;
+						for (int i = 0; i < 5; i++)
+							for (int j = 0; j < 2; j++) {
+								hands[0][i][j] = player[i][j];
+								hands[1][i][j] = dealer[i][j];
+							}
 
 						Medium_Game(deck, hands, player, dealer, player_cards, dealer_cards, Choose, suits, ranks);
 
@@ -406,8 +421,11 @@ int main()
 					shuffleCards(deck);
 
 					hands = dealingForHands(deck, 2);
-					player = *hands;
-					dealer = *(hands + 1);
+					for (int i = 0; i < 5; i++)
+						for (int j = 0; j < 2; j++) {
+							player[i][j] = hands[0][i][j];
+							dealer[i][j] = hands[1][i][j];
+						}
 
 					player_cards = 0;
 					dealer_cards = 0;
@@ -419,8 +437,11 @@ int main()
 
 					while (Choose != 4)
 					{
-						*hands = player;
-						*(hands + 1) = dealer;
+						for (int i = 0; i < 5; i++)
+							for (int j = 0; j < 2; j++) {
+								hands[0][i][j] = player[i][j];
+								hands[1][i][j] = dealer[i][j];
+							}
 
 						Hard_Game(deck, hands, player, dealer, player_cards, dealer_cards, Choose, suits, ranks);
 

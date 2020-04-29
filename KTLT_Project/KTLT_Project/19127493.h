@@ -39,3 +39,4 @@ void Easy_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& deal
 void Medium_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& dealer, int& player_cards, int& dealer_cards, int ChooseofPokerGame, const char* suits[], const char* ranks[]);
 
 void Hard_Game(int deck[SUITS][RANKS], int***& hands, int**& player, int**& dealer, int& player_cards, int& dealer_cards, int ChooseofPokerGame, const char* suits[], const char* ranks[]);
+
