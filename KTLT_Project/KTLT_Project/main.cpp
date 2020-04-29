@@ -314,14 +314,14 @@ int main()
 			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			do
 			{
-				if (ChooseofLevel < 1 || ChooseofLevel > 3)
+				if (ChooseofLevel < 1 || ChooseofLevel > 4)
 				{
 					system("cls");
 					cout << "Something wrong, try again\n";
 					LevelofdifficultMenu();
 					cin >> ChooseofLevel;
 				}
-			} while (ChooseofLevel < 1 || ChooseofLevel > 3);
+			} while (ChooseofLevel < 1 || ChooseofLevel > 4);
 
 
 			////		CHỌN MỨC ĐỘ KHÓ			////
