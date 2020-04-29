@@ -1,7 +1,7 @@
 ﻿#include "19127048.h"
 #include "19127493.h"
 
-void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int ChooseofDealer, const char* suits[], const char* ranks[]) {
+void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int**& dealer_cau3, int n, int ChooseofDealer, const char* suits[], const char* ranks[]) {
 	
 	hands = dealingForHands(deck, n);
 
@@ -11,7 +11,7 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 		printHand(*(hands + i), suits, ranks);
 	}
 	cout << "Dealer's card is: " << endl;
-	printHand(*(hands + n - 1), suits, ranks);
+	printHand(dealer_cau3, suits, ranks);
 
 
 	int* rank = nullptr;
@@ -40,7 +40,7 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 
 	case 2:	////		Kiểm tra điểm của Dealer		////
 		
-		cout << "Dealer's score is " << getStatusOfHand(*(hands + n - 1)) << endl;
+		cout << "Dealer's score is " << getStatusOfHand(dealer_cau3) << endl;
 		break;
 
 	case 3:	////		Bốc và thay thế bài của dealer 		////
@@ -72,23 +72,30 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 				cout << "Card number " << slect_card << " will be replaced" << endl;
 
 				////		Bốc bài		////
+				bool is_found = false;
 				for (int l = 0; l < SUITS; l++)
-					for (int k = 0; k < RANKS; k++)
+					for (int k = 0; k < RANKS; k++) {
 						if (deck[l][k] == n * 5 + i + 1)
 						{
+							is_found = true;
 							draw_card[0] = l;
 							draw_card[1] = k;
 						}
+						if (is_found)
+						{
+							break;
+						}
+					}
 				cout << "This is the card you just drew: " << endl;
 				cout << "(" << suits[draw_card[0]] << ", " << ranks[draw_card[1]] << ")" << endl;
 
 				////		Thay thế các lá bài		////
-				*(hands + n - 1)[slect_card][0] = draw_card[0];
-				*(hands + n - 1)[slect_card][1] = draw_card[1];
+				dealer_cau3[slect_card][0] = draw_card[0];
+				dealer_cau3[slect_card][1] = draw_card[1];
 			}
 		
 			cout << "Dealer's card after the change is: " << endl;
-			printHand(*(hands + n - 1), suits, ranks);
+			printHand(dealer_cau3, suits, ranks);
 			break;
 		}
 
@@ -105,13 +112,20 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 
 			for (int i = 0; i < card1; i++) {
 				////		Bốc bài		////
+				bool is_found1 = false;
 				for (int l = 0; l < SUITS; l++)
-					for (int k = 0; k < RANKS; k++)
+					for (int k = 0; k < RANKS; k++) {
 						if (deck[l][k] == n * 5 + i + 1)
 						{
+							is_found1 = true;
 							draw_card1[0] = l;
 							draw_card1[1] = k;
 						}
+						if (is_found1)
+						{
+							break;
+						}
+					}
 				cout << "This is the card you just drew: " << endl;
 				cout << "(" << suits[draw_card1[0]] << ", " << ranks[draw_card1[1]] << ")" << endl;
 
@@ -123,13 +137,13 @@ void Poker_Game_For_Dealer(int deck[SUITS][RANKS], int***& hands, int n, int Cho
 
 				////		Thay thế các lá bài		////
 				if (slect_card1 != 5) {
-					*(hands + n - 1)[slect_card1][0] = draw_card1[0];
-					*(hands + n - 1)[slect_card1][1] = draw_card1[1];
+					dealer_cau3[slect_card1][0] = draw_card1[0];
+					dealer_cau3[slect_card1][1] = draw_card1[1];
 				}
 			}
 
 			cout << "Dealer's card after the change is: " << endl;
-			printHand(*(hands + n - 1), suits, ranks);
+			printHand(dealer_cau3, suits, ranks);
 			break;
 		}
 

@@ -23,6 +23,10 @@ int main()
 	int NumberofPlayers;
 	int times;
 
+	////		FOR DEALER MODE		////
+	int** dealer_cau3;
+	int*** hands_cau3 = nullptr;
+
 	////		FOR LEVELs		////
 	int player_cards = 0;
 	int dealer_cards = 0;
@@ -220,7 +224,15 @@ int main()
 			system("cls");
 			cout << "How many players (include dealer) you want to play with: ";
 			cin >> NumberofPlayers;
-			////		KIỂM TRA LỖI NGƯỜI DÙNG		////s
+
+			////		CẤP PHÁT ĐỘNG		////
+			dealer_cau3 = new int* [5];
+			for (int i = 0; i < 5; i++)
+			{
+				*(dealer_cau3 + i) = new int[2];
+			}
+
+			////		KIỂM TRA LỖI NGƯỜI DÙNG		////
 			do
 			{
 				if (NumberofPlayers < 2 || NumberofPlayers > 10)
@@ -249,13 +261,24 @@ int main()
 			} while (ChooseofDealer < 1 || ChooseofDealer > 5);
 
 
-			
+			shuffleCards(deck);
+
+			hands_cau3 = dealingForHands(deck, NumberofPlayers);
+
+			for (int i = 0; i < 5; i++)
+				for (int j = 0; j < 2; j++)
+					dealer_cau3[i][j] = hands_cau3[NumberofPlayers - 1][i][j];
+				
 
 
 			////		OPTION		////
 			while (ChooseofDealer != 5)
 			{
-				Poker_Game_For_Dealer(deck, hands, NumberofPlayers, ChooseofDealer, suits, ranks);
+				for (int i = 0; i < 5; i++)
+					for (int j = 0; j < 2; j++)
+						hands_cau3[NumberofPlayers - 1][i][j] = dealer_cau3[i][j];
+				
+				Poker_Game_For_Dealer(deck, hands_cau3, dealer_cau3, NumberofPlayers, ChooseofDealer, suits, ranks);
 
 
 				system("pause");
@@ -266,8 +289,8 @@ int main()
 				cin >> ChooseofDealer;
 			}
 
-
-			DellocateTriplePointer(hands, NumberofPlayers, 5);
+			DellocateDoublePointer(dealer_cau3, 5);
+			DellocateTriplePointer(hands_cau3, NumberofPlayers, 5);
 
 
 			break;
