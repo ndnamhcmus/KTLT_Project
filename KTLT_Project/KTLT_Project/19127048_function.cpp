@@ -87,6 +87,7 @@ int** dealingForHand(int deck[SUITS][RANKS])
 
 int** createHandTest(int deck[SUITS][RANKS], int a[])
 {
+	printMatrix(deck);
 	////		CẤP PHÁT ĐỘNG DÙNG ĐỂ LƯU CÁC VỊ TRÍ TRONG BỘ BÀI		////
 	int** result = new int* [5];
 	for (int i = 0; i < 5; i++)
@@ -145,7 +146,7 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 		}
 	}
 
-
+	
 	return result;
 }
 
@@ -346,7 +347,15 @@ bool checkFourOfAKind(int** hand)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+	
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 
 	////		SORT RANK		////
@@ -385,10 +394,12 @@ bool checkFourOfAKind(int** hand)
 	}
 	if ((checkcountArray[0] == 4 && checkcountArray[1] == 1) || (checkcountArray[0] == 1 || checkcountArray[1] == 4))
 	{
+		DellocateDoublePointer(handTest, 5);
 		return true;
 	}
 	else
 	{
+		DellocateDoublePointer(handTest, 5);
 		return false;
 	}
 }
@@ -401,7 +412,15 @@ bool checkFullHouse(int** hand)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 
 	////		SORT RANK		////
@@ -441,10 +460,12 @@ bool checkFullHouse(int** hand)
 
 	if ((checkcountArray[0] == 3 && checkcountArray[1] == 2) || (checkcountArray[0] == 2 && checkcountArray[1] == 3))
 	{
+		DellocateDoublePointer(handTest, 5);
 		return true;
 	}
 	else
 	{
+		DellocateDoublePointer(handTest, 5);
 		return false;
 	}
 }
@@ -469,7 +490,15 @@ bool checkStraight(int** hand)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 
 	////		SORT RANK		////
@@ -490,9 +519,11 @@ bool checkStraight(int** hand)
 	{
 		if (handTest[i][1] + 1 != handTest[i + 1][1])
 		{
+			DellocateDoublePointer(handTest, 5);
 			return false;
 		}
 	}
+	DellocateDoublePointer(handTest, 5);
 	return true;
 }
 

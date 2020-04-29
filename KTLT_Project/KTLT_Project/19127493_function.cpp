@@ -35,11 +35,19 @@ int isStraightFlush(int** hand) {
 int isThreeOfAKind(int** hand) {
 	////		CẤP PHÁT ĐỘNG		////
 	int** handTest = new int* [5];
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 	////		SORT RANK		////
 	for (int i = 0; i < 5 - 1; i++)
@@ -63,18 +71,32 @@ int isThreeOfAKind(int** hand) {
 		}
 	}
 	if (isTwoPairs(hand) == 0 && count1 == 2)
+	{
+		DellocateDoublePointer(handTest, 5);
 		return 1;
+	}
 	else
+	{
+		DellocateDoublePointer(handTest, 5);
 		return 0;
+	}
 }
 int isTwoPairs(int** hand) {
 	////		CẤP PHÁT ĐỘNG		////
 	int** handTest = new int* [5];
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 	////		SORT RANK		////
 	for (int i = 0; i < 5 - 1; i++)
@@ -101,23 +123,41 @@ int isTwoPairs(int** hand) {
 	else {
 		if (checkFlush(hand) == false) {
 			if (handTest[0][1] == handTest[1][1] && handTest[2][1] == handTest[3][1])
+			{
+				DellocateDoublePointer(handTest, 5);
 				return 1;
+			}
 			if (handTest[1][1] == handTest[2][1] && handTest[3][1] == handTest[4][1])
+			{
+				DellocateDoublePointer(handTest, 5);
 				return 1;
+			}
 			if (handTest[0][1] == handTest[1][1] && handTest[3][1] == handTest[4][1])
+			{
+				DellocateDoublePointer(handTest, 5);
 				return 1;
+			}
 		}
+		DellocateDoublePointer(handTest, 5);
 		return 0;
 	}
 }
 int isPair(int** hand) {
 	////		CẤP PHÁT ĐỘNG		////
 	int** handTest = new int* [5];
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 	////		SORT RANK		////
 	for (int i = 0; i < 5 - 1; i++)
@@ -140,9 +180,15 @@ int isPair(int** hand) {
 		}
 	}
 	if (count == 3 && checkFlush(hand) == false)
+	{
+		DellocateDoublePointer(handTest, 5);
 		return 1;
-	else 
+	}
+	else
+	{
+		DellocateDoublePointer(handTest, 5);
 		return 0;
+	}
 	
 }
 int getHighestCard(int** hand) {
