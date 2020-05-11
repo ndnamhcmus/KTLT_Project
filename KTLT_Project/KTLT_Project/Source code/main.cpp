@@ -45,7 +45,6 @@ int main()
 
 	shuffleCards(deck);
 
-
 	GameModeMenu();
 	cin >> ChooseofGameMode;
 	do
@@ -121,11 +120,7 @@ int main()
 				cin >> ChooseofSinglePlayer;
 			}
 
-
-			if (hand)
-			{
-				DellocateDoublePointer(hand, 5);
-			}
+			DellocateDoublePointer(hand, 5);
 
 
 			break;
@@ -206,10 +201,7 @@ int main()
 			}
 
 
-			if (hands)
-			{
-				DellocateTriplePointer(hands, NumberofPlayers, 5);
-			}
+			DellocateTriplePointer(hands, NumberofPlayers, 5);
 
 
 			break;
@@ -287,15 +279,8 @@ int main()
 				cin >> ChooseofDealer;
 			}
 
-
-			if (dealer_cau3)
-			{
-				DellocateDoublePointer(dealer_cau3, 5);
-			}
-			if (hands_cau3)
-			{
-				DellocateTriplePointer(hands_cau3, NumberofPlayers, 5);
-			}
+			DellocateDoublePointer(dealer_cau3, 5);
+			DellocateTriplePointer(hands_cau3, NumberofPlayers, 5);
 
 
 			break;
@@ -389,10 +374,7 @@ int main()
 					}
 
 
-					if (hands)
-					{
-						DellocateTriplePointer(hands, NumberofPlayers, 5);
-					}
+					DellocateTriplePointer(hands, NumberofPlayers, 5);
 
 
 					break;
@@ -439,10 +421,7 @@ int main()
 					}
 
 
-					if (hands)
-					{
-						DellocateTriplePointer(hands, NumberofPlayers, 5);
-					}
+					DellocateTriplePointer(hands, NumberofPlayers, 5);
 
 
 					break;
@@ -490,10 +469,7 @@ int main()
 					}
 					
 
-					if (hands)
-					{
-						DellocateTriplePointer(hands, NumberofPlayers, 5);
-					}
+					DellocateTriplePointer(hands, NumberofPlayers, 5);
 
 
 					break;
@@ -511,15 +487,8 @@ int main()
 				cin >> ChooseofLevel;
 			}
 
-
-			if (player)
-			{
-				DellocateDoublePointer(player, 5);
-			}
-			if (dealer)
-			{
-				DellocateDoublePointer(dealer, 5);
-			}
+			DellocateDoublePointer(player, 5);
+			DellocateDoublePointer(dealer, 5);
 			break;
 		}
 
@@ -533,7 +502,6 @@ int main()
 		cin >> ChooseofGameMode;
 	}
 	
-
 
 	system("pause");
 	return 0;
