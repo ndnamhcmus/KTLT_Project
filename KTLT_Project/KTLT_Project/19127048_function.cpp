@@ -15,7 +15,6 @@ void shuffleCards(int deck[SUITS][RANKS])
 	}
 	
 
-	srand(time(NULL));
 	for (int i = 0; i < SUITS * RANKS; i++)
 	{
 		int pos1 = 0 + rand() % (3 + 1 - 0);
@@ -88,6 +87,7 @@ int** dealingForHand(int deck[SUITS][RANKS])
 
 int** createHandTest(int deck[SUITS][RANKS], int a[])
 {
+	//printMatrix(deck);
 	////		CẤP PHÁT ĐỘNG DÙNG ĐỂ LƯU CÁC VỊ TRÍ TRONG BỘ BÀI		////
 	int** result = new int* [5];
 	for (int i = 0; i < 5; i++)
@@ -96,18 +96,24 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 	}
 
 
-	////		INPUT DECK		////
-	shuffleCards(deck);
-	//printMatrix(deck);
-
-
 	////		INPUT NHỮNG LÁ BÀI SẼ ĐƯỢC TEST			////
 	for (int i = 0; i < 5; i++)
 	{
 		cout << "Enter your card number: ";
 		cin >> a[i];
-	}
+		for (int j = 0; j < i; j++)		// kiểm tra các lá bài trên tay có bị trùng nhau không
+		{
+			do
+			{
+				if (a[i] == a[j])
+				{
+					cout << "Please choose another one: ";
+					cin >> a[i];
+				}
 
+			} while (a[i] == a[j]);
+		}
+	}
 
 
 	////		TÌM CÁC LÁ BÀI TRONG MA TRẬN DECK		////
@@ -115,7 +121,7 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 	int IndexofResult = 0;
 	for (int IndexorArray = 0; IndexorArray < 5; IndexorArray++)
 	{
-		bool is_found = false;
+		is_found = false;
 		for (int i = 0; i < SUITS; i++)
 		{
 			for (int j = 0; j < RANKS; j++)
@@ -140,7 +146,7 @@ int** createHandTest(int deck[SUITS][RANKS], int a[])
 		}
 	}
 
-
+	
 	return result;
 }
 
@@ -171,7 +177,7 @@ int isFullHouse(int** hand)
 
 int isFlush(int** hand)
 {
-	if (checkFlush(hand))
+	if (checkFlush(hand) && !checkStraight(hand))
 	{
 		return 1;
 	}
@@ -183,7 +189,7 @@ int isFlush(int** hand)
 
 int isStraight(int** hand)
 {
-	if (checkStraight(hand))
+	if (checkStraight(hand) && !checkFlush(hand))
 	{
 		return 1;
 	}
@@ -265,7 +271,7 @@ int* rankingHands(int*** hands, int n)
 	for (int i = 0; i < n; i++)
 	{
 		ScoreofThePlayer[i] = getStatusOfHand(*(hands + i));
-		RankofThePlayer[i] = i + 1;
+		RankofThePlayer[i] = i;
 	}
 
 
@@ -341,7 +347,15 @@ bool checkFourOfAKind(int** hand)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+	
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 
 	////		SORT RANK		////
@@ -380,10 +394,12 @@ bool checkFourOfAKind(int** hand)
 	}
 	if ((checkcountArray[0] == 4 && checkcountArray[1] == 1) || (checkcountArray[0] == 1 || checkcountArray[1] == 4))
 	{
+		DellocateDoublePointer(handTest, 5);
 		return true;
 	}
 	else
 	{
+		DellocateDoublePointer(handTest, 5);
 		return false;
 	}
 }
@@ -396,7 +412,15 @@ bool checkFullHouse(int** hand)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 
 	////		SORT RANK		////
@@ -434,12 +458,14 @@ bool checkFullHouse(int** hand)
 	}
 
 
-	if ((checkcountArray[0] == 3 && checkcountArray[1] == 2) || (checkcountArray[0] == 2 || checkcountArray[1] == 3))
+	if ((checkcountArray[0] == 3 && checkcountArray[1] == 2) || (checkcountArray[0] == 2 && checkcountArray[1] == 3))
 	{
+		DellocateDoublePointer(handTest, 5);
 		return true;
 	}
 	else
 	{
+		DellocateDoublePointer(handTest, 5);
 		return false;
 	}
 }
@@ -464,7 +490,15 @@ bool checkStraight(int** hand)
 	{
 		*(handTest + i) = new int[2];
 	}
-	handTest = hand;
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			handTest[i][j] = hand[i][j];
+		}
+	}
 
 
 	////		SORT RANK		////
@@ -485,13 +519,15 @@ bool checkStraight(int** hand)
 	{
 		if (handTest[i][1] + 1 != handTest[i + 1][1])
 		{
+			DellocateDoublePointer(handTest, 5);
 			return false;
 		}
 	}
+	DellocateDoublePointer(handTest, 5);
 	return true;
 }
 
-int** DellocateDoublePointer(int** Matrix, int Row)
+void DellocateDoublePointer(int**& Matrix, int Row)
 {
 	for (int i = 0; i < Row; i++)
 	{
@@ -499,12 +535,9 @@ int** DellocateDoublePointer(int** Matrix, int Row)
 	}
 	delete[] Matrix;
 	Matrix = nullptr;
-
-
-	return Matrix;
 }
 
-int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row)
+void DellocateTriplePointer(int***& Array3D, int sizeof3D, int Row)
 {
 	////		GIẢI PHÓNG MẢNG 1D		////
 	for (int i = 0; i < sizeof3D; i++)
@@ -524,7 +557,4 @@ int*** DellocateTriplePointer(int*** Array3D, int sizeof3D, int Row)
 
 
 	Array3D = nullptr;
-
-
-	return Array3D;
 }
