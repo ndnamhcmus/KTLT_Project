@@ -119,8 +119,12 @@ int main()
 				SinglePlayerMenu();
 				cin >> ChooseofSinglePlayer;
 			}
+			
 
-			DellocateDoublePointer(hand, 5);
+			if (hand)
+			{
+				DellocateDoublePointer(hand, 5);
+			}
 
 
 			break;
@@ -200,8 +204,10 @@ int main()
 				cin >> ChooseofMultiPlayer;
 			}
 
-
-			DellocateTriplePointer(hands, NumberofPlayers, 5);
+			if (hands)
+			{
+				DellocateTriplePointer(hands, NumberofPlayers, 5);
+			}
 
 
 			break;
@@ -279,8 +285,15 @@ int main()
 				cin >> ChooseofDealer;
 			}
 
-			DellocateDoublePointer(dealer_cau3, 5);
-			DellocateTriplePointer(hands_cau3, NumberofPlayers, 5);
+
+			if (dealer_cau3)
+			{
+				DellocateDoublePointer(dealer_cau3, 5);
+			}
+			if (hands_cau3)
+			{
+				DellocateTriplePointer(hands_cau3, NumberofPlayers, 5);
+			}
 
 
 			break;
@@ -374,7 +387,10 @@ int main()
 					}
 
 
-					DellocateTriplePointer(hands, NumberofPlayers, 5);
+					if (hands)
+					{
+						DellocateTriplePointer(hands, NumberofPlayers, 5);
+					}
 
 
 					break;
@@ -421,7 +437,10 @@ int main()
 					}
 
 
-					DellocateTriplePointer(hands, NumberofPlayers, 5);
+					if (hands)
+					{
+						DellocateTriplePointer(hands, NumberofPlayers, 5);
+					}
 
 
 					break;
@@ -469,7 +488,10 @@ int main()
 					}
 					
 
-					DellocateTriplePointer(hands, NumberofPlayers, 5);
+					if (hands)
+					{
+						DellocateTriplePointer(hands, NumberofPlayers, 5);
+					}
 
 
 					break;
@@ -487,8 +509,14 @@ int main()
 				cin >> ChooseofLevel;
 			}
 
-			DellocateDoublePointer(player, 5);
-			DellocateDoublePointer(dealer, 5);
+			if (player)
+			{
+				DellocateDoublePointer(player, 5);
+			}
+			if (dealer)
+			{
+				DellocateDoublePointer(dealer, 5);
+			}
 			break;
 		}
 
